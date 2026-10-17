@@ -1,0 +1,1151 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07303b"><title>遺跡の秘宝庫 | RELIC VAULT v2.5.1 SHOP ECONOMY</title>
+<style>
+:root{--ink:#332314;--paper:#f2dfb1;--dark:#1a191b;--brass:#c69c59;--amber:#f4b94d;--red:#a64e2b;--jade:#69cbb0}*{box-sizing:border-box}html,body{height:100%;margin:0}body{color:var(--ink);font-family:Georgia,"Hiragino Kaku Gothic ProN","Noto Sans JP",serif;background:radial-gradient(ellipse at 50% 12%,#12566c 0,#0b3443 43%,#061a27 100%);user-select:none;-webkit-user-select:none;overflow:hidden}body:before{content:"";position:fixed;inset:0;opacity:.22;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0 55px,#080b0955 56px 60px),radial-gradient(ellipse at bottom,#1d0d08aa,transparent 70%)}button{font-family:inherit;cursor:pointer;touch-action:manipulation}button:disabled{opacity:.46;filter:grayscale(.6);cursor:default}.app{position:relative;z-index:1;width:min(100%,630px);height:100dvh;margin:auto;display:flex;flex-direction:column;padding:5px max(5px,env(safe-area-inset-left)) max(5px,env(safe-area-inset-bottom));gap:3px}.apparatus{height:100%;display:flex;flex-direction:column;min-height:0;border:5px ridge #98663e;background:#211d18;box-shadow:inset 0 0 0 2px #e2b773,0 7px 30px #000b;overflow:hidden}.top{position:relative;z-index:2;flex:0 0 auto;background:linear-gradient(105deg,#57361e,#9a6937 8%,#59391f 18%,#3e2b1d 65%,#9a6b39 92%,#3c2616);border-bottom:5px ridge #c49350;padding:5px 7px 6px;color:#f8e4b8;box-shadow:0 5px 9px #0805058c}.top:before{content:"";position:absolute;inset:2px;border:1px solid #d8ae6755;pointer-events:none}.heading{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:0 4px 4px}.heading .name{font-size:clamp(12px,3vw,16px);font-weight:1000;letter-spacing:2px;text-shadow:1px 2px 0 #1b130b}.heading .subtitle{font-size:8px;color:#d5b883;letter-spacing:1.5px;white-space:nowrap}.counters{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:5px}.counter{position:relative;min-width:0;background:linear-gradient(180deg,#251d19,#100d0d);border:2px ridge #977044;border-radius:3px;text-align:center;padding:4px 2px 3px;box-shadow:inset 0 2px 8px #070507}.counter small{display:block;color:#c9a976;font-size:clamp(8px,2.3vw,10px);font-weight:900;letter-spacing:1.6px}.counter strong{display:block;font-family:Georgia,serif;font-size:clamp(20px,5.2vw,29px);line-height:1.15;color:#f8d993;text-shadow:0 2px 0 #5c3b21}.counter .green{color:#b5f4d2}.counter .unit{font-size:10px;margin-left:3px;color:#eac78c}.toprow{display:flex;gap:5px;margin-top:5px;align-items:center}.woodbtn{border:2px solid #593317;color:#fff0c5;font-weight:1000;text-shadow:0 1px 1px #3a1c0a;box-shadow:inset 0 2px 0 #fff2bd77,inset 0 -4px 0 #72341a,0 2px 0 #130c07;border-radius:5px;background:linear-gradient(#f5b356 0,#c97a35 47%,#a95b27 100%);padding:10px 7px;min-height:40px;font-size:clamp(12px,3.3vw,15px)}.woodbtn:active{transform:translateY(2px);box-shadow:inset 0 2px 0 #fff2bd77}.woodbtn.primary{flex:1}.woodbtn.small{width:68px;background:linear-gradient(#6f6a5b,#37352c);box-shadow:inset 0 2px 0 #ded0b865,inset 0 -4px 0 #27231a,0 2px 0 #0d0a08}.secondary{border:1px solid #d4a569;background:linear-gradient(#896144,#60422d);color:#ffe8b1;border-radius:5px;padding:9px 12px;font-weight:800;font-size:12px;box-shadow:0 3px 0 #1d1510}.tinybar{display:flex;justify-content:space-between;align-items:center;gap:7px;margin-top:5px;min-height:24px}.tokenbar{display:flex;align-items:center;gap:5px;color:#cfefdf;font-size:11px;font-weight:900;letter-spacing:.5px}.orb{width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff,#69e7cc 32%,#166e75 70%,#113549);border:1px solid #b4ffeb;box-shadow:0 0 5px #70e9d5}.relicslots{display:flex;justify-content:flex-end;min-width:0;gap:4px;flex:1}.item{background:#271d16;border:1px solid #a17c50;color:#ffe5ab;padding:4px 7px;border-radius:4px;font-size:11px;max-width:120px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.item:active{background:#775637}.status{font-size:10px;min-height:13px;color:#e6c895;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;text-align:center}.status.hot{color:#fff4b0;text-shadow:0 0 9px #ffb63b}.world{position:relative;flex:1;min-height:0;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#34342d,#1b211f 80%),repeating-linear-gradient(90deg,#3b3428 0 9px,#252923 9px 17px);display:flex;align-items:center;justify-content:center}.world canvas{display:block;width:100%;height:100%;object-fit:contain;image-rendering:pixelated;touch-action:none}.world:after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 2px #97724b,inset 0 0 19px #070804}.hint{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);z-index:2;color:#f3dcadcf;text-shadow:1px 2px 3px #000;font-size:10px;white-space:nowrap;pointer-events:none;opacity:.68}.overlay{position:absolute;inset:0;background:#090b0abc;display:flex;align-items:center;justify-content:center;padding:14px;z-index:8;overflow-y:auto;overscroll-behavior:contain}.overlay.hide{display:none}.dialog{position:relative;width:min(100%,480px);max-height:min(87dvh,780px);overflow-y:auto;background:linear-gradient(105deg,#ac8050 0%,#eedab3 5%,#f9eccb 20%,#f0dbb2 80%,#ad814f 99%);border:6px ridge #af8047;outline:3px solid #4c3523;box-shadow:0 0 0 7px #271d14,0 16px 50px #000e;color:#3b281b;padding:15px 13px;text-align:center}.dialog:before{content:"✥ ───────── ❖ ───────── ✥";display:block;color:#976639;font-size:11px;letter-spacing:2px;margin-bottom:8px}.dialog h1{font-size:clamp(21px,6vw,34px);line-height:1.25;letter-spacing:3px;margin:7px 0;color:#5c3524;text-shadow:0 1px 0 #fff9e7}.dialog h1 small{display:block;font-size:10px;letter-spacing:4px;color:#a57c4f;margin-bottom:6px}.dialog h2{font-size:23px;margin:7px 0 11px;color:#5b341c}.dialog p{font-size:12px;line-height:1.8;margin:10px 0;color:#674b35}.dialog .actions{display:flex;flex-direction:column;gap:8px;margin:14px auto 3px;max-width:300px}.dialog .big{width:100%;padding:12px;font-size:16px}.summary{display:flex;justify-content:space-around;gap:6px;border-block:1px solid #b59668;margin:13px 0;padding:9px 0}.summary>div{font-size:10px;color:#6d5032}.summary strong{display:block;font-size:19px;color:#70401e}.cards{display:grid;grid-template-columns:1fr;gap:8px;margin:12px 0}.choice{padding:11px;border:2px solid #a57848;background:linear-gradient(90deg,#fff5d6,#e7c995);box-shadow:inset 0 0 0 2px #ffedc4;text-align:left;border-radius:5px;color:#3e2a1b;display:flex;gap:10px;align-items:center}.choice:active{background:#fbc371}.choice .ic{flex-shrink:0;width:40px;height:40px;display:grid;place-items:center;background:#764b2c;color:#ffdda0;border:2px ridge #c59a50;border-radius:5px;font-size:23px}.choice b{display:block;font-size:14px}.choice small{display:block;font-size:11px;line-height:1.5;color:#705234;margin-top:3px}.groupname{text-align:left;margin:13px 2px 5px;color:#7f4724;font-size:12px;border-bottom:1px solid #b78e61;padding-bottom:5px}.meta{margin:5px 0;padding:8px;border:1px solid #b99970;background:#fff6daad;display:flex;gap:8px;align-items:center;text-align:left}.meta .info{flex:1;min-width:0}.meta .info b{display:block;font-size:13px}.meta .info small{display:block;font-size:10px;color:#805e40;margin-top:3px}.meta button{min-width:92px;flex-shrink:0;border:1px solid #784e22;border-radius:4px;background:linear-gradient(#eeb45b,#b9732e);font-size:10px;font-weight:900;padding:8px 5px;color:#fff8df}.meta button:disabled{opacity:.4}.footnote{font-size:10px!important;color:#967d5b!important}.toastlayer{position:absolute;inset:0;pointer-events:none;z-index:4;overflow:hidden}.toast{position:absolute;left:50%;top:24%;transform:translate(-50%,0);white-space:nowrap;background:#332115e8;border:2px ridge #d0a361;color:#ffe3a6;border-radius:5px;padding:7px 11px;font-weight:900;font-size:14px;text-shadow:1px 2px #000;animation:pop 1.45s both}@keyframes pop{0%{opacity:0;transform:translate(-50%,20px) scale(.8)}12%{opacity:1;transform:translate(-50%,0) scale(1.07)}75%{opacity:1}100%{opacity:0;transform:translate(-50%,-28px)}}@media(max-width:400px){.heading .subtitle{display:none}.top{padding:4px}.counter{padding:3px 2px}.toprow{margin-top:4px}.woodbtn{min-height:37px;padding:8px 5px}.tinybar{margin-top:4px}.hint{font-size:9px}}
+
+/* Vault bonus: in-world stone gateway and 5-orb ritual */
+.vault-intro{position:relative;overflow:hidden;background:radial-gradient(circle at 50% 34%,#54766e 0%,#273c37 33%,#141e1b 78%);border:5px ridge #7f724f;min-height:320px;margin:6px 0;padding:10px 7px 14px;color:#f6e6b8;box-shadow:inset 0 0 32px #060a0e,inset 0 0 0 3px #baa170;}
+.vault-intro .vault-title{position:relative;z-index:6;letter-spacing:.22em;font:900 clamp(13px,3.8vw,18px)/1.3 Georgia,serif;text-shadow:0 2px 7px #000;color:#f6e8ae;}
+.vault-intro .vault-sub{position:relative;z-index:6;margin:3px 0 0;font-size:10px;color:#d3d9bc;letter-spacing:.15em}
+.vault-orbs{position:relative;z-index:7;display:flex;justify-content:center;gap:15px;margin:18px 0 8px;}
+.vault-orbs span{width:21px;height:21px;border-radius:50%;border:1px solid #a9fff0;background:radial-gradient(circle at 30% 25%,#fff8cf 0%,#a2f4c4 18%,#4bc7a5 36%,#155958 75%,#12353d);box-shadow:0 0 8px #6afbd8;animation:orbChime 1s ease-in-out both;animation-delay:calc(var(--i)*.16s);}
+@keyframes orbChime{0%{opacity:.15;filter:brightness(.4);transform:translateY(16px) scale(.45)}70%{opacity:1;transform:translateY(-6px) scale(1.3)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.vault-doorframe{position:relative;width:min(100%,240px);height:188px;margin:12px auto 0;background:linear-gradient(90deg,#37372b 0%,#91866c 9%,#252a27 15%,#181e21 50%,#93896f 91%,#342f25 100%);border:7px ridge #a99570;box-shadow:0 5px 18px #080e0e,inset 0 0 0 3px #c1b18d;overflow:hidden;}
+.vault-doorframe:after{position:absolute;content:'';inset:0;border:3px solid #e0c48b6e;pointer-events:none;z-index:5}
+.vault-beam{position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 50%,transparent 0deg 20deg,#fff5bc34 21deg 23deg,transparent 24deg 40deg),radial-gradient(circle,#f9edb7 0%,#b8d4a8 20%,#4da391 46%,#132f35 87%);opacity:.2;transition:opacity 1s;}
+.vault-gate{position:absolute;top:0;bottom:0;width:50%;background:repeating-linear-gradient(0deg,transparent 0 28px,#c6b79055 29px 31px,transparent 32px 56px),linear-gradient(90deg,#41443c,#8c8971 45%,#4e4c3c);z-index:3;transition:transform 1.2s cubic-bezier(.16,.79,.23,1);}
+.vault-gate.left{left:0;border-right:3px solid #dac997;box-shadow:inset -6px 0 16px #0b1414aa}
+.vault-gate.right{right:0;border-left:3px solid #dac997;box-shadow:inset 6px 0 16px #0b1414aa}
+.vault-gate:before{content:'ᚱ';position:absolute;top:43%;font-size:29px;color:#ead9ad;text-shadow:0 0 7px #f5df8a}
+.vault-gate.left:before{right:10px}.vault-gate.right:before{left:10px}
+.vault-intro.open .vault-gate.left{transform:translateX(-104%)}.vault-intro.open .vault-gate.right{transform:translateX(104%)}.vault-intro.open .vault-beam{opacity:1}
+.vault-gate-key{position:absolute;z-index:4;width:44px;height:44px;top:40%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:5px ridge #e5cf93;background:radial-gradient(circle,#c5dfb8,#387d6a 65%,#242e27);font-size:22px;line-height:35px;color:#f7e7ab;box-shadow:0 0 9px #cde3a8;transition:opacity .3s}
+.vault-intro.open .vault-gate-key{opacity:0}
+.vault-wait{font:900 13px/1.5 Georgia,serif;letter-spacing:.1em;color:#fff5c4;min-height:26px;margin:12px 0 4px;text-shadow:0 1px 3px #000}
+.vault-intro .secondary{position:relative;z-index:10}
+.vault-choices .choice{border-color:#997947}.vault-choices .choice .ic{background:linear-gradient(#7b6a45,#3d4335);color:#ffedb0}
+.vault-reward-visual{font-size:57px;color:#6a522f;text-shadow:0 3px #fff0c8;padding:6px 0 2px}
+.vault-reward-title{font-size:23px;font-weight:900;color:#533822}
+.vault-burst{position:absolute;pointer-events:none;inset:0;border:6px solid #f9e3a1;box-shadow:inset 0 0 45px #fff2bf88;animation:vaultBurst 1.4s ease-out forwards}
+@keyframes vaultBurst{from{opacity:1;transform:scale(.85)}to{opacity:0;transform:scale(1.2)}}
+.dialog.vault-dialog{background:linear-gradient(135deg,#d4c396 0%,#f3e5c2 12%,#fff2d5 48%,#d5bf95 96%);border-color:#9f976e}
+.jp-demo-flag{position:relative;font-size:10px;background:#3b382e;border:1px solid #c3ae7b;color:#f5e6b8;padding:5px 7px;letter-spacing:.07em;margin-top:5px}
+@media(max-height:650px){.vault-intro{min-height:275px}.vault-doorframe{height:143px}.vault-orbs{margin:11px 0 6px}}
+
+/* 2.0.2 / OPEN THE TREASURE GATE: staged, cinematic, no external assets */
+.vault-intro{--fx-gold:#f3d79b;position:relative;overflow:hidden;isolation:isolate;border:6px ridge #92815f;background:
+ radial-gradient(ellipse at 50% 40%,#2e5c54 0%,#142d30 47%,#090f15 90%);
+ padding:12px 7px 10px;min-height:399px;margin:4px 0 3px;box-shadow:inset 0 0 0 3px #d8bd7c,inset 0 0 55px #000b,0 0 20px #55472555}
+.vault-intro:before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.45;background:
+ repeating-linear-gradient(90deg,transparent 0 35px,#050b1155 35px 38px,transparent 39px 72px),
+ repeating-linear-gradient(0deg,transparent 0 46px,#dbc5a511 47px 49px);mix-blend-mode:screen}
+.vault-intro:after{content:"";pointer-events:none;position:absolute;inset:-30%;z-index:8;background:radial-gradient(circle at center,#fff4cde8 0%,#f9c858aa 12%,#ffffff00 50%);opacity:0;transform:scale(.3);}
+.vault-intro.open:after{animation:gateFlash 1.2s ease-out both}
+@keyframes gateFlash{0%{opacity:0;transform:scale(.2)}15%{opacity:1}100%{opacity:0;transform:scale(1.35)}}
+.vault-heading{position:relative;z-index:12;color:#f5e1ad;text-align:center;font-weight:1000;letter-spacing:.2em;text-shadow:0 2px 5px #000,0 0 15px #ccb26d55;font-size:clamp(15px,4.2vw,20px)}
+.vault-heading small{display:block;color:#8bd9c2;font:900 8px/1.5 Georgia,serif;letter-spacing:.27em;margin-top:2px}
+.vault-orbs{position:relative;z-index:12;display:flex;justify-content:center;gap:9px;margin:9px 0 2px}
+.vault-orbs span{position:relative;width:20px;height:20px;flex:0 0 20px;border-radius:50%;border:2px solid #b5fff0;background:radial-gradient(circle at 32% 25%,#fff9d4 0%,#b8fff0 17%,#44a89b 38%,#17505b 65%,#0d2639 100%);box-shadow:0 0 3px #7febd5;opacity:.3;transform:scale(.56);animation:orbFuse .42s ease-out both;animation-delay:calc(var(--i)*.22s)}
+.vault-orbs span:after{content:"";inset:-6px;position:absolute;border:1px solid #f6dea6aa;border-radius:50%;opacity:0}
+.vault-intro.charged .vault-orbs span:after{animation:orbRing 1.3s ease-out 1 both}
+@keyframes orbFuse{0%{opacity:.1;transform:scale(.56)}55%{opacity:1;transform:scale(1.35);box-shadow:0 0 18px #8efde7}100%{opacity:1;transform:scale(1);box-shadow:0 0 13px #67fddd}}
+@keyframes orbRing{0%{transform:scale(.6);opacity:1}100%{transform:scale(2.3);opacity:0}}
+.vault-temple{position:relative;z-index:3;width:min(100%,325px);height:225px;margin:5px auto 2px;perspective:580px;filter:drop-shadow(0 7px 9px #050807e0)}
+.vault-pillar{position:absolute;z-index:7;top:12px;bottom:0;width:18px;border:4px ridge #d6bd85;background:repeating-linear-gradient(90deg,#514e45 0 4px,#8a8670 5px 7px,#b1a58b 8px 10px);box-shadow:4px 0 10px #000a;}
+.vault-pillar.l{left:0}.vault-pillar.r{right:0;box-shadow:-4px 0 10px #000b}
+.vault-lintel{position:absolute;z-index:9;left:-5px;right:-5px;top:0;height:33px;border:4px ridge #d5bd86;background:linear-gradient(#c3b18c,#605d4e 50%,#807660);box-shadow:0 6px 5px #0007;color:#e9d6a8;font-size:16px;line-height:25px;letter-spacing:10px;text-align:center;text-shadow:0 2px 3px #382e1e}
+.vault-reveal{position:absolute;inset:29px 17px 2px;overflow:hidden;border:3px solid #816b49;background:radial-gradient(ellipse at 50% 75%,#fff4b7 0%,#f8c45d 23%,#be7d30 44%,#4f311b 71%,#140d0f 100%);box-shadow:inset 0 0 20px #0009}
+.vault-reveal:before{position:absolute;content:"";inset:-70%;background:repeating-conic-gradient(from 0deg at 50% 50%,#fffcd827 0deg 11deg,transparent 11deg 25deg);animation:turnTreasure 18s linear infinite;opacity:.85}
+@keyframes turnTreasure{to{transform:rotate(360deg)}}
+.vault-reveal:after{content:"";position:absolute;left:0;right:0;bottom:0;height:45%;background:linear-gradient(transparent,#5930178c)}
+.vault-relics{position:absolute;z-index:2;left:0;right:0;top:37px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:36px;color:#fff0b1;text-shadow:0 3px 0 #8f531c,0 0 12px #fff7cf}
+.vault-coin-pile{position:absolute;left:0;right:0;bottom:0;height:102px;z-index:3}
+.vault-coin-pile i{position:absolute;bottom:var(--y);left:var(--x);width:var(--w);height:15px;border-radius:50%;background:linear-gradient(160deg,#ffefb2,#e9ad3e 40%,#805019 78%,#c68730);border:2px solid #eec878;box-shadow:0 3px 0 #664014,0 5px 4px #251309ad;transform:rotate(var(--rot));}
+.vault-gate{position:absolute;z-index:5;top:27px;bottom:2px;width:calc(50% - 17px);border:5px ridge #a99b7a;background:
+ repeating-linear-gradient(0deg,transparent 0 29px,#e1cdab55 30px 32px,transparent 33px 48px),
+ linear-gradient(90deg,#343b3a,#858b7e 24%,#555a51 50%,#293233 100%);
+ box-shadow:inset 0 0 0 3px #c9b48b66,inset 0 0 18px #07130f,0 4px 11px #080a0cae;transition:transform 1.45s cubic-bezier(.14,.8,.12,1),filter 1.45s;transform-origin:0 50%}
+.vault-gate.left{left:17px;border-right:5px solid #d8c59b;transform-origin:0 50%}
+.vault-gate.right{right:17px;border-left:5px solid #d8c59b;transform-origin:100% 50%}
+.vault-gate:before{content:"✣";position:absolute;left:18%;right:18%;top:37%;color:#eedca6;text-shadow:0 1px 3px #000,0 0 10px #d6bd8a;font-size:31px;text-align:center}
+.vault-gate:after{content:"";position:absolute;inset:8px;border:2px dashed #b9a67d;opacity:.6}
+.vault-intro.open .vault-gate.left{transform:translateX(-103%) rotateY(-48deg);filter:brightness(.7)}
+.vault-intro.open .vault-gate.right{transform:translateX(103%) rotateY(48deg);filter:brightness(.7)}
+.vault-lock{position:absolute;z-index:10;top:48%;left:50%;transform:translate(-50%,-50%);width:67px;height:67px;display:grid;place-items:center;border-radius:50%;border:7px ridge #dbc88d;background:radial-gradient(circle,#c0ffe8,#286c69 60%,#162c3b);font-size:31px;color:#f9f0bb;box-shadow:0 0 0 4px #393b33,0 0 17px #fdf1b277;text-shadow:0 0 7px #fff6da;transition:transform .52s,opacity .36s}
+.vault-intro.charged .vault-lock{animation:lockBreak .48s ease-in-out 2}
+@keyframes lockBreak{0%,100%{transform:translate(-50%,-50%) rotate(0)}35%{transform:translate(-50%,-50%) rotate(28deg)}68%{transform:translate(-50%,-50%) rotate(-25deg)}}
+.vault-intro.open .vault-lock{opacity:0;transform:translate(-50%,-50%) rotate(100deg) scale(1.9)}
+.vault-particles{pointer-events:none;position:absolute;inset:0;z-index:11;overflow:hidden}
+.vault-particles span{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);background:var(--color);border-radius:30%;box-shadow:0 0 7px var(--color);opacity:0}
+.vault-intro.open .vault-particles span{animation:treasureSpark var(--duration) ease-out var(--delay) both}
+@keyframes treasureSpark{0%{opacity:0;transform:translate(0,6px) scale(.3)}12%{opacity:1}70%{opacity:.95}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(160deg) scale(.1)}}
+.vault-shock{position:absolute;pointer-events:none;z-index:4;left:50%;top:48%;width:50px;height:50px;border:2px solid #fff3cb;border-radius:50%;transform:translate(-50%,-50%) scale(.5);opacity:0}
+.vault-intro.open .vault-shock{animation:shockRing 1.15s ease-out forwards}
+@keyframes shockRing{15%{opacity:.9}100%{opacity:0;transform:translate(-50%,-50%) scale(6)}}
+.vault-callout{position:relative;z-index:12;min-height:22px;margin-top:3px;color:#f3e7ba;text-shadow:0 2px 6px #000,0 0 7px #dfac5b;font-size:12px;font-weight:900;letter-spacing:.1em}
+.vault-intro.open .vault-callout{color:#ffe399;font-size:15px}
+.vault-intro .secondary{position:relative;z-index:20;margin-top:5px;font-size:11px;padding:7px 12px}
+.vault-intro.open{animation:templeShake .35s linear 1}
+@keyframes templeShake{0%,100%{transform:none}20%{transform:translate(2px,0)}40%{transform:translate(-3px,1px)}60%{transform:translate(2px,-1px)}80%{transform:translate(-1px,0)}}
+.vault-choices .choice{position:relative;border-color:#aa8748;background:linear-gradient(110deg,#fff5d9,#eed6a0 67%,#d2b075);box-shadow:inset 0 0 0 2px #ffeac2,0 3px 5px #55411b44;transition:transform .13s}
+.vault-choices .choice:hover{transform:translateY(-2px);filter:brightness(1.04)}
+.vault-choices .choice .ic{background:linear-gradient(#8a774b,#3d4738);color:#ffdf7c;border:2px ridge #c8ad6b;border-radius:7px}
+.vault-choices .choice:after{content:"✦";position:absolute;right:13px;top:12px;color:#b48b40;font-size:15px}
+.vault-choices-label{margin:2px 0;color:#a17a4a;font-size:10px;letter-spacing:2px;font-weight:bold}
+.vault-reward-visual{font-size:69px;line-height:1.15;color:#926526;text-shadow:0 2px #fff0b7,0 0 19px #e8c36e;padding:15px 0 4px;animation:lootRise .7s cubic-bezier(.18,1.8,.5,1) both}
+@keyframes lootRise{from{opacity:0;transform:translateY(32px) scale(.65)}to{opacity:1;transform:translateY(0) scale(1)}}
+.vault-burst{position:absolute;pointer-events:none;inset:0;border:6px solid #f9e3a1;box-shadow:inset 0 0 45px #fff2bf88;animation:vaultBurst 1.4s ease-out forwards}
+.vault-reward-title{font-size:23px;font-weight:900;color:#67431f}
+@media(max-width:390px){.vault-intro{min-height:368px;padding:10px 4px}.vault-temple{height:205px;width:min(100%,294px)}.vault-heading{font-size:15px}.vault-callout{font-size:11px}.vault-orbs{margin-top:6px}}
+@media(max-height:720px){.vault-intro{min-height:334px}.vault-temple{height:187px}.vault-heading{font-size:15px}.vault-orbs{margin:6px 0}.vault-callout{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.vault-particles span,.vault-intro:after,.vault-shock,.vault-reveal:before{animation:none!important}.vault-gate,.vault-lock{transition-duration:.01s}}
+
+/* v2.3 FORGE & DEPTH: punchy numbers, overflowing gold, dark ancient arcade */
+.game-submark{font:800 8px/1 sans-serif;letter-spacing:1.2px;color:#f9d17c;vertical-align:middle;margin-left:3px}
+.top{background:linear-gradient(110deg,#58351d,#a67b35 13%,#392515 43%,#775023 82%,#3d2515);border-bottom-color:#d3a74c}
+.counters{grid-template-columns:.90fr 1.37fr .9fr}
+.counter:nth-child(2){background:radial-gradient(ellipse at 50% 20%,#56331b,#140c09 79%);border-color:#e1aa46;box-shadow:0 0 10px #db8a2138,inset 0 0 8px #000}
+.counter:nth-child(2) strong{font-size:clamp(19px,5.4vw,31px);color:#ffdc70;letter-spacing:-.6px;white-space:nowrap}
+.counter strong{transition:color .12s ease}
+.counter strong.score-pulse{animation:scoreThrob .24s ease-out}
+@keyframes scoreThrob{0%{transform:scale(1.16);color:#fff}100%{transform:scale(1)}}
+.frenzyline{display:flex;align-items:center;gap:7px;margin:5px 0 0;padding:3px 5px;background:#130f0de8;border:1px solid #76582f;color:#f6ca67;font:bold 10px/1.25 sans-serif}
+.frenzylevel{min-width:83px;white-space:nowrap;letter-spacing:.4px}.frenzymeter{height:7px;flex:1;background:#382219;border:1px solid #79613f;overflow:hidden}.frenzymeter>div{height:100%;width:0%;background:linear-gradient(90deg,#a35e16,#ffe38c);transition:width .22s}.frenzyline b{font-size:12px;min-width:33px;text-align:right}
+.frenzyline.hyped{border-color:#ffe188;box-shadow:0 0 13px #ffbd4938;background:#412210}
+.frenzyline.hyped .frenzymeter>div{background:linear-gradient(90deg,#ff8d1d,#fff9b1,#ff7714);box-shadow:0 0 10px #ffa91b}
+.stormbanner{position:absolute;left:50%;top:44%;z-index:4;transform:translate(-50%,-50%) scale(.6);pointer-events:none;white-space:nowrap;text-align:center;opacity:0;text-shadow:0 3px 3px #532b0b,0 0 14px #e89a23;transition:opacity .15s,transform .22s}
+.stormbanner small{display:block;font:bold 19px/1.2 Georgia,serif;letter-spacing:4px;color:#fff5ce}.stormbanner strong{display:block;font:1000 clamp(39px,10vw,64px)/1.1 Georgia,serif;color:#ffdb55;-webkit-text-stroke:1px #a45e17}
+.stormbanner.visible{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.gold-flash{position:absolute;inset:0;pointer-events:none;z-index:3;background:radial-gradient(ellipse at center,#fffcc9c9 0,#ffb52a42 47%,transparent 80%);opacity:0;transition:opacity .18s}
+.gold-flash.active{opacity:1}
+.world{background:radial-gradient(ellipse at 50% 36%,#8a5d26,#241912 74%)}
+.world:after{box-shadow:inset 0 0 0 3px #e4b351,inset 0 0 30px #c77d1d5c}
+.toast{font-size:clamp(13px,3.5vw,17px);background:#332111ef;border-color:#f7ce71}
+.counter .unit{font-size:8px}
+@media(max-width:400px){.game-submark{display:none}.counter:nth-child(2) strong{font-size:21px}.frenzylevel{min-width:73px;font-size:9px}.frenzyline{margin-top:3px}.stormbanner small{font-size:14px}}
+
+/* v2.3 REFORGED: deliberate scarcity, progress readable at a glance */
+.relic-label{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:#e4c38b;min-height:22px;max-width:100%;overflow:hidden;white-space:nowrap}
+.relic-label b{color:#ffe9ad;font-size:11px}.cards .choice:disabled{opacity:.4}
+.choice .lvtag{display:inline-block;padding:2px 6px;margin-left:5px;border-radius:3px;background:#64452d;color:#ffe7b2;font-size:10px}
+.cloon-panel{position:relative;overflow:hidden;display:grid;place-items:center;background:radial-gradient(circle at center,#60462d,#211d1b 66%,#111a19 90%);border:4px ridge #c8a15c;min-height:340px;margin:10px 0}
+.cloon-wheel{width:270px;height:270px;max-width:80vw;max-height:80vw;position:relative;border:15px ridge #9f7237;border-radius:50%;background:radial-gradient(circle,#2d473b 0 12%,#574329 12% 38%,#926f3d 38% 52%,#272721 52% 100%);box-shadow:0 0 0 5px #21170c,inset 0 0 22px #000,0 0 38px #b68a405b}
+.cloon-wheel::after{content:'✦';position:absolute;inset:42%;display:grid;place-items:center;color:#ffdda0;font-size:30px;text-shadow:0 0 11px #ffe1a3}
+.cloon-hole{position:absolute;left:50%;top:50%;width:42px;height:42px;display:grid;place-items:center;border:4px ridge #9c7c4f;background:#151912;border-radius:50%;box-shadow:inset 0 4px 8px #000,0 1px 0 #eed291;color:#e6cc92;font-size:9px;font-weight:1000;line-height:1.1;text-align:center;transform:translate(-50%,-50%) translate(var(--dx),var(--dy))}
+.cloon-ball{position:absolute;left:50%;top:50%;width:21px;height:21px;z-index:4;border-radius:50%;border:2px solid #defefa;background:radial-gradient(circle at 28% 23%,#fff,#a4f9dd 20%,#3fbdab 40%,#164759 80%);box-shadow:0 0 15px #5beccc;transform:translate(-50%,-50%)}
+.cloon-panel .cloon-flash{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50%,#ffdc7444,transparent 65%);opacity:0;transition:opacity .3s}.cloon-panel.done .cloon-flash{opacity:1}
+.cloon-reward{font-size:21px!important;color:#8d5420!important;font-weight:1000}.cloon-status{min-height:20px;color:#e5c98c;margin:8px 0 2px;font-size:11px}
+
+/* v2.3 : fit the entire permanent-upgrade shop on one ordinary screen */
+.dialog.shop-dialog{width:min(98vw,720px);max-height:96dvh;padding:9px 12px 10px;overflow-y:auto;border-width:4px;outline-width:2px}
+.dialog.shop-dialog:before{display:none}
+.shop-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:2px solid #b08a57;padding-bottom:6px}
+.shop-heading small{font:800 9px/1.2 system-ui;color:#87613e;letter-spacing:1.6px}
+.shop-heading h1{font-size:21px;margin:1px 0;letter-spacing:1px}
+.shop-wallet{background:#654021;color:#fbe5b6;font-size:10px;padding:5px 10px;min-width:100px;border:2px ridge #bf9a64;text-align:center}
+.shop-wallet strong{display:block;color:#fff3c1;font:900 21px/1.1 Georgia}
+.shop-legend{font-size:10px;text-align:left;margin:6px 2px 7px;color:#705233}
+.shop-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;align-items:start}
+.shop-group{min-width:0;background:#e4ca9d;border:1px solid #c4a475;padding:5px;border-radius:4px}
+.shop-group h3{margin:0 0 5px;font-size:12px;color:#593b21;text-align:left;padding:2px 4px 4px;border-bottom:1px solid #bd9e6a}
+.shop-upgrade{display:grid;grid-template-columns:21px minmax(0,1fr);grid-template-rows:auto auto;gap:3px 4px;padding:5px 3px;border:1px solid #cfb28b;background:#f7e7c8;margin-bottom:4px;text-align:left;border-radius:3px;min-height:73px}
+.shop-upgrade.buyable{box-shadow:inset 0 0 0 1px #e9b64e;background:#fff0c9}
+.shop-ico{font-size:19px;line-height:23px;color:#866033;text-align:center}
+.shop-desc{min-width:0}
+.shop-desc b{display:block;font-size:11px;line-height:1.1}
+.shop-desc em{font-size:9px;white-space:nowrap;font-style:normal;color:#926a46;margin-left:3px}
+.shop-desc small{display:block;font-size:9px;line-height:1.18;margin-top:2px;color:#795b3b}
+.shop-upgrade button{grid-column:1/-1;background:linear-gradient(#d4a25d,#a66a38);border:1px solid #82552e;color:#fff4db;font-weight:900;font-size:10px;padding:3px;min-height:24px;border-radius:3px}
+.shop-upgrade button:disabled{background:#b5a085;color:#6b5944}
+.shop-return{width:100%;margin-top:7px;min-height:31px;font-size:13px;padding:6px}
+@media(max-width:560px){.dialog.shop-dialog{width:min(98vw,480px);max-height:97dvh;padding:8px 9px}.shop-grid{grid-template-columns:1fr;gap:3px}.shop-group{padding:3px 4px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}.shop-group h3{grid-column:1/-1;margin:0;padding:0 2px 2px;font-size:11px}.shop-upgrade{margin:0;grid-template-columns:19px 1fr;min-height:49px;padding:3px;gap:2px}.shop-desc b{font-size:10px}.shop-desc small{font-size:8px;line-height:1.08;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.shop-ico{font-size:15px;line-height:20px}.shop-upgrade button{min-height:19px;padding:0;font-size:9px}.shop-legend{margin:4px 0;font-size:9px}.shop-heading h1{font-size:17px}.shop-wallet{min-width:88px;padding:3px}.shop-wallet strong{font-size:17px}.shop-return{margin-top:4px;min-height:30px}}
+@media(max-width:330px){.shop-grid{gap:2px}.shop-group{grid-template-columns:repeat(2,minmax(0,1fr))}.shop-upgrade{grid-template-columns:16px 1fr;min-height:44px;padding:2px}.shop-upgrade button{grid-column:1/-1;min-height:17px}.shop-desc small{font-size:7px;line-height:1.1}.shop-ico{font-size:12px}}
+
+
+/* WebGL2 view: one self-contained HTML, with the existing playable 2D fallback */
+.world #threeView{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none;display:none;z-index:1;image-rendering:auto}
+body.using-real-3d .world #game{opacity:0}
+#threeDigits{display:none;position:absolute;inset:0;z-index:2;pointer-events:none;font-family:Georgia,serif;font-weight:900;color:#ffe8a4;text-shadow:0 1px 2px #080909,0 0 12px #f4c368;white-space:nowrap}#threeDigits span{position:absolute;transform:translate(-50%,-50%);text-align:center}
+body.using-real-3d #threeDigits{display:block}
+@media(max-width:480px){#threeDigits{font-size:clamp(12px,4vw,19px);top:26%}}
+
+
+/* v2.4 in-cabinet 3D altar and buffered spins */
+.queue-count{margin-left:10px;padding:3px 6px;border:1px solid #b19c64;background:#231d18;color:#ffdda1;font:800 10px/1.2 system-ui;white-space:nowrap}
+.world{isolation:isolate}
+.world .altar-shrine{position:absolute;z-index:6;left:50%;top:1.8%;width:min(67%,330px);aspect-ratio:1.26;transform:translate(-50%,-125%);pointer-events:none;opacity:0;transition:transform .7s cubic-bezier(.2,.76,.3,1),opacity .25s;filter:drop-shadow(0 6px 9px #000a);container-type:inline-size}
+.world .altar-shrine:not(.summoned){transform:translate(-50%,0);opacity:1}
+.world .altar-shrine.summoned{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.altar-crown{text-align:center;padding:2px 8px;color:#ecd9a2;background:linear-gradient(#71522e,#493122);border:3px ridge #b99757;font:900 clamp(9px,1.2vw,15px)/1.3 Georgia,serif;letter-spacing:2px;text-shadow:0 2px 2px #28160c}
+.altar-mouth{position:relative;margin:0 auto;width:100%;aspect-ratio:1.50;background:radial-gradient(ellipse at center,#273e38,#17221f 55%,#211914 80%);border:9px ridge #958162;box-shadow:inset 0 0 20px #000a;overflow:hidden}
+.altar-mouth:before{content:'';position:absolute;inset:1%;border:2px solid #aa8445;pointer-events:none;z-index:3}
+.altar-wheel{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64%;aspect-ratio:1;border:14px ridge #c49b56;border-radius:50%;background:radial-gradient(circle,#d1a75c 0 9%,#2d4032 10% 26%,#916b32 27% 33%,#35473a 36% 100%);box-shadow:0 0 0 3px #271d14,inset 0 0 16px #000b;z-index:1;container-type:inline-size}
+.altar-wheel:after{content:'✦';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:23px;color:#e3c278;pointer-events:none}
+.altar-hole{position:absolute;left:calc(50% + var(--x));top:calc(50% + var(--y));transform:translate(-50%,-50%);width:21%;aspect-ratio:1;border:3px ridge #a58c55;border-radius:50%;background:radial-gradient(circle at 50% 60%,#080f0f,#2b2c23);color:#e7c784;font:900 clamp(5px,.9vw,9px)/1.1 system-ui;display:grid;place-items:center;box-shadow:inset 0 3px 5px #000,0 1px 0 #fff2;white-space:nowrap}
+.altar-orb{position:absolute;top:50%;left:50%;width:11%;aspect-ratio:1;border-radius:50%;z-index:4;transform:translate(-50%,-50%) translate(0,-35cqw);background:radial-gradient(circle at 29% 24%,#fff,#a4faec 16%,#21aa9b 45%,#06424b 85%);box-shadow:0 0 9px #6dfff9;border:1px solid #b6f2df}
+.altar-door{position:absolute;top:0;bottom:0;width:50%;background:repeating-linear-gradient(90deg,#6c7061 0 12px,#8a8c78 12px 16px,#4d5b51 16px 25px);border:5px ridge #ac9e78;z-index:5;transition:transform 1.15s cubic-bezier(.18,.72,.18,1)}
+.altar-door:after{content:'ᛟ';position:absolute;top:37%;color:#d9c68e;text-shadow:0 3px 4px #161f1a;font-size:30px}
+.altar-door.left{left:0}.altar-door.left:after{right:12%}
+.altar-door.right{right:0}.altar-door.right:after{left:12%}
+.altar-shrine.doors-open .altar-door.left{transform:translateX(-110%)}
+.altar-shrine.doors-open .altar-door.right{transform:translateX(110%)}
+.altar-status{text-align:center;color:#ffdea4;font:800 10px/1.3 system-ui;min-height:14px;background:#201c17db;text-shadow:0 1px 2px #000;opacity:0}
+.altar-result{display:none;background:#2b2119ef;color:#ffedbf;padding:7px;text-align:center;border:2px solid #bc9452;box-shadow:0 6px 13px #000b}
+.altar-shrine.summoned .altar-status{opacity:1}
+.altar-shrine.reward .altar-result{display:block}
+.altar-prize{display:flex;justify-content:center;gap:8px;align-items:center;font:900 15px Georgia}.altar-prize span{font:700 11px system-ui}
+.altar-result button{padding:6px;margin-top:4px;width:95%;font-size:11px}
+.altar-skip{position:absolute;z-index:8;right:4px;bottom:0;background:#392b1c;color:#ffe1a2;border:1px solid #c59d51;font-size:9px;pointer-events:auto;display:none;padding:3px 5px}
+.altar-shrine.summoned:not(.reward) .altar-skip{display:block}
+.altar-shrine.reward .altar-skip{display:none}
+.altar-shrine:not(.summoned) .altar-wheel{opacity:0}
+.altar-shrine.summoned .altar-wheel{opacity:1}
+.altar-shrine:not(.summoned){pointer-events:none}
+@media(max-width:480px){.world .altar-shrine{width:76%;top:1.2%}.altar-mouth{border-width:6px}.altar-wheel{border-width:9px}.altar-hole{border-width:2px;font-size:6px}.altar-crown{font-size:9px}.altar-door:after{font-size:22px}.altar-status{font-size:9px}}
+
+
+/* Keep the sealed altar compact on the 2.5D fallback so it never conceals the reels. */
+body:not(.using-real-3d) .world .altar-shrine:not(.summoned){left:89%;top:1.0%;width:19%;aspect-ratio:.83;transform:translate(-50%,0);filter:drop-shadow(0 3px 3px #000a)}
+body:not(.using-real-3d) .altar-shrine:not(.summoned) .altar-crown{font-size:5px;letter-spacing:0;padding:1px}
+body:not(.using-real-3d) .altar-shrine:not(.summoned) .altar-mouth{border-width:3px;aspect-ratio:.95}
+body:not(.using-real-3d) .altar-shrine:not(.summoned) .altar-door{border-width:2px}
+body:not(.using-real-3d) .altar-shrine:not(.summoned) .altar-door:after{font-size:13px}
+
+
+/* v2.4.1: never cover the oracle slot in 3D during normal play */
+.world .altar-shrine:not(.summoned),
+body.using-real-3d .world .altar-shrine:not(.summoned){
+  left:auto;right:2%;top:2%;width:19%;max-width:142px;
+  aspect-ratio:1;transform:none;opacity:1;pointer-events:none;
+  filter:drop-shadow(0 3px 5px #0009);
+}
+.world .altar-shrine:not(.summoned) .altar-crown{font-size:clamp(5px,.9vw,9px);letter-spacing:0;padding:1px 2px;border-width:2px}
+.world .altar-shrine:not(.summoned) .altar-mouth{border-width:3px;aspect-ratio:1}
+.world .altar-shrine:not(.summoned) .altar-door{border-width:2px}
+.world .altar-shrine:not(.summoned) .altar-door:after{font-size:13px}
+.world .altar-shrine.summoned{left:auto;right:1%;top:2%;width:min(44%,280px);transform:none;opacity:1}
+@media(max-width:480px){.world .altar-shrine.summoned{width:42%;right:1%}.world .altar-shrine:not(.summoned){width:19%;right:2%}}
+
+
+/* GOLDEN PIXEL visual pass: lights + consistent coarse pixel shading */
+.world{background:radial-gradient(ellipse at 50% 30%,#15576b 0%,#0a3340 56%,#061b2a 100%)}
+.top{background:linear-gradient(115deg,#71431c,#c18b38 8%,#633b19 25%,#422714 60%,#ae7629 95%);border-color:#ffd36b}
+.apparatus{border-color:#d69a3e;box-shadow:inset 0 0 0 2px #ffce61,0 7px 30px #0009}
+.counter{border-color:#dda84c}.woodbtn{background:linear-gradient(#ffcc63,#ea962e 47%,#b96119);border-color:#7f491e}
+.world canvas{image-rendering:pixelated}
+#threeView{image-rendering:pixelated!important}
+
+/* v2.4.3: fine-grain, high-contrast arcade pixel finish */
+.world:before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.13;
+background-image:repeating-linear-gradient(0deg,rgba(5,22,29,.33) 0 1px,transparent 1px 4px),repeating-linear-gradient(90deg,rgba(235,202,123,.13) 0 1px,transparent 1px 4px);
+image-rendering:pixelated;mix-blend-mode:soft-light}
+#threeDigits{z-index:4;overflow:visible;top:0!important;font-family:Georgia,serif;letter-spacing:0}
+#threeDigits span{display:flex;justify-content:center;align-items:center;white-space:nowrap;overflow:hidden;line-height:1.12;
+ border-radius:2px;background:linear-gradient(180deg,#1a292955,#050c10aa);text-shadow:0 1px 2px #000,0 0 5px #fac65d;color:#ffd77b;
+ border:1px solid #ae854440;box-sizing:border-box}
+.world .altar-shrine:not(.summoned),body.using-real-3d .world .altar-shrine:not(.summoned){
+ left:50%;right:auto;top:3%;width:26%;max-width:130px;transform:translateX(-50%);opacity:1;
+ box-shadow:0 2px 0 #a77b2b66;filter:drop-shadow(0 3px 2px #0007)}
+.world .altar-shrine:not(.summoned) .altar-crown{font-size:clamp(6px,1vw,9px);background:linear-gradient(180deg,#8e642d,#241c17);color:#f7d98a}
+.world .altar-shrine:not(.summoned) .altar-mouth{height:35px;aspect-ratio:auto;border:3px ridge #ae833e;background:#143844}
+.world .altar-shrine:not(.summoned) .altar-door{background:repeating-linear-gradient(90deg,#3b655f 0 7px,#265158 7px 12px,#1b3d46 12px 15px);border:2px ridge #b89351}
+.world .altar-shrine:not(.summoned) .altar-door:after{top:17%;font-size:12px}
+.world .altar-shrine.summoned{left:50%;right:auto;top:1.8%;width:min(40%,245px);transform:translateX(-50%)}
+@media(max-width:480px){.world .altar-shrine:not(.summoned){width:24%;top:2%}.world .altar-shrine.summoned{width:43%}}
+body.using-real-3d .altar-shrine{filter:none}body.using-real-3d .altar-shrine .altar-crown{display:none}body.using-real-3d .altar-shrine .altar-door{display:none}body.using-real-3d .altar-shrine .altar-mouth{background:transparent;border:none;box-shadow:none;overflow:visible}body.using-real-3d .altar-shrine .altar-wheel{opacity:0!important;visibility:hidden}body.using-real-3d .altar-shrine .altar-status,body.using-real-3d .altar-shrine .altar-result{background:rgba(12,8,5,.72);border:1px solid #b89256;border-radius:6px;padding:4px 6px}body.using-real-3d .altar-shrine.summoned{top:4.7%;width:min(34%,220px)}@media(max-width:480px){body.using-real-3d .altar-shrine.summoned{top:5.2%;width:39%}}
+.top{box-shadow:0 4px 0 #322013,0 8px 18px #030e13b3}
+.counter{box-shadow:inset 0 2px 0 #e5a95328,inset 0 -3px 10px #0009}
+
+/* v2.4.6: Balatro-inspired crisp pixel treatment */
+#threeDigits{font-family:monospace;font-weight:1000;letter-spacing:-1px;text-shadow:2px 2px 0 #152018,0 0 8px #e6bc61;filter:contrast(1.23) saturate(.9)}
+#threeDigits span{image-rendering:pixelated;background:linear-gradient(#e6cd81,#a98a47);-webkit-background-clip:text;background-clip:text;color:transparent}
+#threeView{image-rendering:pixelated;filter:contrast(1.12) saturate(1.10)}
+.world:before{content:'';position:absolute;inset:0;pointer-events:none;z-index:3;opacity:.15;background:repeating-linear-gradient(0deg,transparent 0 3px,#080d1338 3px 4px),repeating-linear-gradient(90deg,transparent 0 5px,#e9ac4522 5px 6px);mix-blend-mode:overlay}
+
+#barLabels{position:absolute;inset:0;z-index:5;pointer-events:none}#barLabels b{position:absolute;transform:translate(-50%,-50%);font:bold 10px/1 monospace;color:#fff0a2;background:transparent;border:none;padding:0;color:#e9b742;text-shadow:-1px -1px 0 #fff3a3,1px 1px 0 #53320b,2px 2px 1px #301903;box-shadow:none;letter-spacing:-.5px;opacity:.82}
+
+/* v2.4.9 unified pixel arcade skin */
+:root{--paper:#f6e9c5;--amber:#ffd270}
+.top,.counter,.woodbtn,.queue-count,.frenzyline,.status,.game-submark,.heading,.item{font-family:ui-monospace,"Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif!important}
+.top{padding:5px 7px 5px;background:linear-gradient(95deg,#6e4826,#362c29 17%,#243941 58%,#694522);border-bottom:3px solid #bb864c}
+.heading .name{letter-spacing:.5px}.heading .subtitle{letter-spacing:.4px;opacity:.65}.game-submark{font-size:8px;letter-spacing:1px}
+.counter{background:#142629;border:1px solid #a68146;border-radius:2px;padding:3px 1px}.counter small{font-size:9px;letter-spacing:0}.counter strong{font-family:ui-monospace,system-ui,sans-serif;font-weight:1000;text-shadow:none}
+.woodbtn{border-radius:2px;box-shadow:inset 0 2px #fff3c065,inset 0 -3px #773d12;font-weight:900}
+.tinybar{margin-top:3px}.frenzyline{margin-top:2px}.status{font-size:9px;min-height:0;height:0;overflow:hidden}
+#barLabels b{font-family:Impact,"Arial Black",system-ui,sans-serif!important;font-weight:1000!important;font-size:clamp(12px,2.5vw,19px)!important;letter-spacing:-.06em!important;color:#8b511a!important;text-shadow:none!important;filter:none!important;opacity:.91!important;line-height:1!important}
+#threeDigits{font-family:Impact,"Arial Black","Hiragino Kaku Gothic ProN",system-ui,sans-serif!important;font-weight:1000!important;filter:none!important;letter-spacing:-.08em!important}
+#threeDigits span{background:linear-gradient(180deg,#9c948a 0%,#fefdf8 19%,#fff 48%,#fff 78%,#918d87 100%)!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:#b61e23!important;border:1px solid #9f926f!important;border-radius:1px!important;text-shadow:none!important;box-shadow:inset 0 4px 7px -5px #17111399,inset 0 -5px 7px -4px #100b117f!important}
+#threeDigits span::first-letter{font-weight:1000}
+.world:before{opacity:.08}
+
+/* v2.4.9 full white drum, reel blur, reach lights */
+#threeDigits span{background:linear-gradient(180deg,#aaa5a1 0%,#fff 19%,#fff 78%,#a6a1a0 100%)!important;color:#df1838!important;border:1px solid #e5dfd4!important;box-shadow:inset 0 14px 14px -16px #181216,inset 0 -14px 14px -16px #181216!important;font-family:Impact,"Arial Black",system-ui,sans-serif!important;font-weight:1000!important;text-shadow:none!important;overflow:hidden!important;}
+#threeDigits span.rolling{filter:blur(1px)!important;background-position:0 var(--roll,0px)!important;}
+#threeDigits span.reaching{color:#f02e37!important;outline:2px solid #ffdc3e;box-shadow:inset 0 15px 16px -14px #211,0 0 14px #ffd23c!important;animation:reachbeat .24s infinite alternate}
+body.slot-hit .apparatus{box-shadow:inset 0 0 0 2px #ffec70,0 0 28px #ffb72c,inset 0 0 35px #ffb52d}
+@keyframes reachbeat{to{filter:brightness(1.45);transform:translate(-50%,-50%) scale(1.035)}}
+.toprow{gap:4px}.toprow #buy{width:65px;background:linear-gradient(#fad573,#b98429);color:#271808;font-size:11px}.toprow #pause{width:54px;font-size:11px}
+.orb{background:radial-gradient(circle at 32% 23%,#fff,#dfafff 19%,#8535c8 54%,#38115e 85%);border-color:#d7a1ff;box-shadow:0 0 7px #ab60ff}
+
+/* v2.5 individual economy shop */
+.toprow #drop{background:linear-gradient(180deg,#ffe1a1,#e8b752 48%,#9b6124);color:#261804;letter-spacing:2px;font-size:16px}
+.toprow #pause{width:75px;font-size:11px;letter-spacing:1px}
+.dialog:has(.upgrade-shop){width:min(96vw,570px);max-height:90dvh;padding:11px;overflow-y:auto}
+.upgrade-shop{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:9px 0;max-height:55dvh;overflow-y:auto;align-content:start}
+.upgrade-tile{display:grid;grid-template-columns:28px 1fr;grid-template-rows:1fr auto;gap:3px;background:#fff2d5;border:2px solid #c69a5c;text-align:left;padding:7px;color:#392819;min-width:0}
+.upgrade-tile:disabled{opacity:.52;filter:saturate(.6)}.upgrade-tile:not(:disabled){background:#fff4d5;box-shadow:inset 0 0 0 1px #f3d08a}
+.upgrade-tile .uicon{font-size:22px;align-self:center;color:#9e5c26}.upgrade-tile .uinfo{min-width:0}.upgrade-tile b{display:block;font-size:12px}.upgrade-tile em{font:9px system-ui;color:#886b48}.upgrade-tile small{display:block;font-size:10px;line-height:1.35;margin-top:3px}.upgrade-tile i{font-style:normal;font-size:9px;display:block;color:#967048;margin-top:3px}
+.upgrade-tile strong{grid-column:1/-1;text-align:right;font-size:14px;color:#915113;border-top:1px solid #dcb988;padding-top:3px}
+.shop-note{margin:5px 0!important}.slot-hit #threeDigits span{filter:drop-shadow(0 0 8px #ffcf38)}
+@media(max-width:400px){.upgrade-shop{gap:4px}.upgrade-tile{grid-template-columns:20px 1fr;padding:5px}.upgrade-tile .uicon{font-size:17px}.upgrade-tile b{font-size:10px}.upgrade-tile small{font-size:9px}.upgrade-tile i{font-size:8px}}
+
+/* v2.5.1: full-face vertical reels rather than a number window inside a white panel */
+body.using-real-3d #threeDigits{z-index:5!important;overflow:visible!important;filter:none!important}
+body.using-real-3d #threeDigits>span{display:block!important;box-sizing:border-box!important;padding:0!important;overflow:hidden!important;background:linear-gradient(180deg,#aba8a4 0%,#f2f0ed 13%,#fff 31%,#fff 68%,#e4e1dc 87%,#9a9694 100%)!important;border:0!important;border-radius:0!important;outline:0!important;box-shadow:inset 0 10px 15px -14px #161318,inset 0 -12px 16px -13px #161318!important;filter:none!important;transform:translate(-50%,-50%)!important;color:#e52138!important}
+.slot-strip{position:absolute;left:0;top:0;width:100%;height:100%;display:block;overflow:visible;will-change:transform}
+.slot-figure{position:absolute;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:Impact,'Arial Black',system-ui,sans-serif;font-weight:1000;color:#e91b37;text-shadow:none;white-space:nowrap;line-height:1;will-change:transform}
+.slot-figure.neighbor{opacity:.48;filter:blur(.5px)}
+body.using-real-3d .slot-hit #threeDigits>span{box-shadow:inset 0 10px 15px -14px #161318,inset 0 -12px 16px -13px #161318,0 0 13px #ffc83f!important}
+#perfHud{position:absolute;z-index:25;bottom:4px;left:4px;right:4px;background:#081b23dc;color:#8cffc4;font:10px monospace;padding:4px;pointer-events:none;display:none}#perfHud[data-active="1"]{display:block}
+</style></head>
+<body><div class="app"><div class="apparatus"><header class="top"><div class="heading"><div class="name">⚜ 遺跡の秘宝庫 <span class="game-submark">GOLDEN AVALANCHE</span></div><div class="subtitle">RELIC VAULT</div></div><div class="counters"><div class="counter"><small>残り金貨</small><strong class="green" id="reserve">100</strong></div><div class="counter"><small>SHOP</small><strong id="score">10</strong></div><div class="counter"><small>次の強化</small><strong id="next">5<span class="unit">枚</span></strong></div></div><div class="toprow"><button class="woodbtn primary" id="drop">✦ SHOP</button><button class="woodbtn small" id="pause">PAUSE</button></div><div class="tinybar"><div class="tokenbar"><i class="orb"></i> 魔力珠 <b id="tokens">0/5</b> <span class="queue-count" id="queueCount">神託 0 / 4</span></div><div class="relicslots" id="items"><span style="font-size:10px;color:#c7aa82">遺物なし</span></div></div><div class="frenzyline"><span class="frenzylevel" id="frenzyLevel">✦ GOLD I</span><div class="frenzymeter"><div id="frenzyFill"></div></div><b id="multiplier">×1</b></div><div class="status" id="status"></div></header><div class="world" id="world"><div class="altar-shrine" id="altarShrine"><div class="altar-crown">✦ ALTAR OF FATE ✦</div><div class="altar-mouth"><div class="altar-wheel" id="altarWheel"></div><div class="altar-door left"></div><div class="altar-door right"></div></div><div class="altar-status" id="altarStatus"></div><div class="altar-result" id="altarResult"></div><button class="altar-skip" id="altarSkip">SKIP ›</button></div><canvas id="game" width="312" height="462" aria-label="神殿のコインプッシャーゲーム盤面"></canvas><canvas id="threeView" aria-hidden="true"></canvas><div id="threeDigits" aria-hidden="true"><span>7</span><span>7</span><span>7</span></div><div id="perfHud" data-active="0"></div><div class="toastlayer" id="toasts"></div><div id="goldFlash" class="gold-flash"></div><div class="stormbanner" id="stormBanner"><small>GOLD STORM</small><strong id="stormNumber">×10</strong></div></div></div><div class="overlay" id="overlay"><div class="dialog" id="modal"></div></div></div>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id), W=420,H=620,canvas=$('game'),ctx=canvas.getContext('2d',{alpha:false}),scaleX=canvas.width/W,scaleY=canvas.height/H;
+const RAD=13.1,UP_BACK=216,LOW_EDGE=544, SIDE_OPEN=378, LEFT=52,RIGHT=368, PUSHL=195, PUSH_C=350,PUSH_A=33;
+const rand=(a,b)=>a+Math.random()*(b-a),clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),irand=(a,b)=>Math.floor(rand(a,b+1));
+const $overlay=$('overlay'),$modal=$('modal'),$status=$('status');
+const SAVE='relic-vault-fantasy-v2';
+const FORGE=[
+ {id:'satchel',group:'鍛冶工房',ic:'◈',name:'冒険者の金貨袋',desc:'開始時の残り金貨 +4 / Lv',max:7,cost:20},
+ {id:'motor',group:'鍛冶工房',ic:'⚒',name:'歯車の改良',desc:'プッシャー速度 +3% / Lv',max:6,cost:35},
+ {id:'collector',group:'鍛冶工房',ic:'▣',name:'ルーン受け箱',desc:'受け箱の幅を拡張。神託の機会を増やす',max:5,cost:45},
+ {id:'runequeue',group:'魔術祭壇',ic:'▤',name:'神託の書架',desc:'抽選待機枠 +2 / Lv（4 → 6 → 8 → 10）',max:3,cost:42},
+ {id:'runeluck',group:'魔術祭壇',ic:'✧',name:'運命の糸',desc:'スロットの揃い確率 +0.4pt / Lv',max:6,cost:40},
+ {id:'pearl',group:'魔術祭壇',ic:'●',name:'魔力の結晶',desc:'探索開始時の魔力珠 +1 / Lv',max:4,cost:65},
+ {id:'alchemy',group:'魔術祭壇',ic:'✦',name:'錬金術の基礎',desc:'財宝得点 ×1.20 / Lv（乗算）',max:6,cost:52},
+ {id:'salvage',group:'盗賊ギルド',ic:'♜',name:'遺跡の地図',desc:'持ち帰る欠片 +12% / Lv',max:6,cost:30},
+ {id:'refund',group:'盗賊ギルド',ic:'↗',name:'盗賊の指輪',desc:'回収時の追加金貨チャンス +4pt / Lv',max:6,cost:46},
+ {id:'insight',group:'盗賊ギルド',ic:'◉',name:'先見の眼',desc:'遺物選択の無料リロールを各探索1回解放',max:1,cost:110},
+ {id:'legacy',group:'魔術祭壇',ic:'☼',name:'古代の導火線',desc:'遺物進化時の追加払い出し +5 / Lv',max:5,cost:100}
+];
+function fresh(){return {shards:0,runs:0,best:0,levels:{},total:0};}
+let profile=fresh(), saveOk=true;
+try{let p=JSON.parse(localStorage.getItem(SAVE)||'null');if(p){profile={...fresh(),...p,levels:{...p.levels}}}}catch(e){saveOk=false}
+function persist(){try{localStorage.setItem(SAVE,JSON.stringify(profile))}catch(e){saveOk=false}}
+const ml=id=>profile.levels[id]||0;
+const metaCost=m=>Math.round(m.cost*Math.pow(1.66,ml(m.id)));
+let s,coins=[],incoming=[],sparkles=[],idSeq=1,nowTime=0,lastTime=0,accum=0,viewPause=false,holding=false;
+let audioCtx=null;function beep(hz=440,d=.075,type='square',volume=.055){try{audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')audioCtx.resume();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=type;o.frequency.setValueAtTime(hz,audioCtx.currentTime);g.gain.setValueAtTime(volume,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+d);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+d)}catch(e){}}
+let reelSymbols=['1','3','7'],spin=null,spinQueue=0,toastClock=0,overlayMode='home';
+let vaultDemo=false,floodDemo=false,vaultSceneToken=0,cloonSceneToken=0;
+const queueCapacity=()=>Math.min(10,4+2*ml('runequeue'));
+let cloonActive=null;
+let coinRain=[],floatTexts=[],frontDrops=[],lastScoreFx=0,flashT=0,stormT=0;let orbReplenish=0;
+const SYMS=['1','2','3','4','5','6','7','8','9','●','▤','↻','✚'];
+const SLOTNAME={'●':'魔力珠','▤':'金塊','↻':'再抽選','✚':'金貨補充'};const ornateSymbol=v=>({'●':'✦','▤':'▥','↻':'⟳','✚':'✚'}[v]||v);
+const UPG=[
+ {id:'satchel',ic:'▣',name:'補給袋',desc:'購入時+5枚。回収時の追加補充率+5pt',trade:'即効性◎ / 伸びは小',base:12,growth:2.4,max:5,rarity:12,act:()=>give(5)},
+ {id:'refund',ic:'↺',name:'金貨還流',desc:'回収ごとに残り金貨が増えやすくなる +6pt',trade:'安定収益 / 瞬発力△',base:22,growth:2.45,max:5,rarity:11,act:()=>{}},
+ {id:'motor',ic:'➜',name:'高速歯車',desc:'プッシャー速度+8%',trade:'回転率↑ / 投入も速まる',base:18,growth:2.36,max:5,rarity:11,act:()=>{s.buffs.speed*=1.08}},
+ {id:'collector',ic:'▣',name:'拡張受け皿',desc:'抽選を拾う受け箱の幅が広がる',trade:'抽選↑ / コイン増加は間接的',base:27,growth:2.48,max:5,rarity:12,act:()=>{s.buffs.collector=Math.min(5,s.buffs.collector+1)}},
+ {id:'luck',ic:'✧',name:'大当たり率',desc:'スロット3つ揃い率+1pt',trade:'一撃狙い / 発動にムラ',base:44,growth:2.6,max:5,rarity:10,act:()=>{}},
+ {id:'ward',ic:'♜',name:'サイドガード',desc:'左右に落ちる金貨の損失を軽減',trade:'取りこぼし減 / 速度は変化なし',base:38,growth:2.42,max:5,rarity:7,act:()=>{s.buffs.wall=rl('ward')>=3?1:0}},
+ {id:'echo',ic:'↻',name:'おかわり抽選',desc:'大当たり時、追加抽選率+6pt',trade:'連鎖狙い / 当たり待ち',base:60,growth:2.62,max:5,rarity:8,act:()=>{}},
+ {id:'token',ic:'◆',name:'水晶の巣',desc:'購入時に魔力球+1。高Lvほど増殖',trade:'クルーン重視 / 直接収益△',base:75,growth:2.68,max:5,rarity:9,act:()=>addIncoming('orb',1)},
+ {id:'more',ic:'◈',name:'二連投入',desc:'投入時に2枚ずつ落とす。購入時+4枚',trade:'圧力↑ / 消費速度2倍',base:90,growth:2.75,max:3,rarity:6,act:()=>{s.buffs.batch=2;give(4)}},
+ {id:'auto',ic:'⚙',name:'自動投入',desc:'自動投入を解放。Lvアップで高速化',trade:'放置化 / 投入ペースに注意',base:140,growth:2.8,max:5,rarity:5,act:()=>{s.buffs.auto=Math.min(5,s.buffs.auto+1)}},
+ {id:'rod',ic:'▥',name:'棒金工房',desc:'棒金回収時、追加の棒金を生む',trade:'高額回収狙い / 発動は不定期',base:160,growth:2.75,max:5,rarity:8,act:()=>addStorm(3,5)},
+ {id:'cascade',ic:'☼',name:'黄金連鎖',desc:'回収から追加金貨を連鎖生成',trade:'育つほど強い / 序盤は弱い',base:240,growth:2.8,max:5,rarity:6,act:()=>{s.buffs.cascade=rl('cascade')}},
+ {id:'fountain',ic:'♛',name:'金貨の泉',desc:'購入時10枚の金貨シャワー。以後も追加',trade:'盤面密度↑ / 利益は時間差',base:390,growth:2.85,max:5,rarity:5,act:()=>addStorm(10,1)},
+ {id:'weight',ic:'⚒',name:'王家の鋳型',desc:'回収コインの価値×1.55',trade:'倍率型 / 安価コインには弱い',base:520,growth:2.93,max:5,rarity:10,act:()=>{}},
+ {id:'alchemy2',ic:'✧',name:'禁断の錬金術',desc:'金貨価値×2。呪いが7秒早く来る',trade:'高倍率 / 呪いが加速',base:880,growth:3,max:4,rarity:3,act:()=>{s.curseAt-=7}}
+];
+const upgradePrice=u=>Math.min(1e18,Math.round(u.base*Math.pow(u.growth,rl(u.id))));
+
+const RELIC_SLOTS=6;
+const rl=id=>s?.upgrades?.[id]||0;
+const equipped=()=>Object.entries(s?.upgrades||{}).filter(([,v])=>v>0).length;
+const evolved=()=>rl('weight')>=3&&rl('cascade')>=3;
+const divine=()=>rl('token')>=3&&rl('echo')>=3;
+
+const ITEMS={chest:{ic:'▥',name:'宝箱',effect:'高価値金貨を3個追加'},potion:{ic:'✚',name:'金貨の薬',effect:'残り金貨を10枚追加'},ward:{ic:'♜',name:'結界石',effect:'一時的にサイドロスト防止'},fever:{ic:'✦',name:'黄金の加護',effect:'15秒間スコアと速度アップ'}};
+function reset(){
+ vaultDemo=false;floodDemo=false;vaultSceneToken++;cloonSceneToken++;cloonActive=null;hideAltar();
+ s={running:true,ended:false,paused:false,choosing:false,bank:100+ml('satchel')*4,shopBought:0,score:0,spent:0,returned:0,sideLost:0,collected:0,level:0,next:5,needed:5,shards:0,token:0,orbCollected:0,items:[],buffs:{value:1,collector:0,luck:0,wall:0,speed:1,echo:0,refund:0,auto:0,batch:1,cascade:0},autoT:0,deckP:-Math.PI/2,deckFront:PUSH_C-PUSH_A,prevFront:PUSH_C-PUSH_A,catchP:0,catcher:210,cycles:0,emptyCycle:null,empty:0,fever:0,guard:0,combo:0,comboT:0,upgrades:{},spins:0,lock:0,cool:0,kakuhen:0,pressure:0,feedImpulse:0,stormQueue:0,stormPower:1,stormRate:0,scoreBump:0,highlight:0,aim:210,runTime:0,curseAt:100,curseCount:0,transfers:0,bonus:[],announce:'',announceT:0};
+ coins=[];incoming=[];sparkles=[];coinRain=[];frontDrops=[];orbReplenish=0;floatTexts=[];lastScoreFx=0;flashT=0;stormT=0;idSeq=1;spin=null;spinQueue=0;reelSymbols=[String(irand(1,9)),String(irand(1,9)),String(irand(1,9))];
+ // Cover the entire playable surface with a noisy, evenly filled field.
+ // A loose staggered lattice guarantees coverage; rotation, jitter and multilayer
+ // overlap break the grid without carving large empty areas.
+ for(const [zone,ny,rows,layers,extra] of [['top',239,5,7,34],['bottom',398,7,5,56]]){
+   const cols=12, width=RIGHT-LEFT-2*RAD, left=LEFT+RAD;
+   const yLimit=zone==='top'?Math.max(302,s.deckFront-11):537;
+   const spread=yLimit-ny;
+   for(let row=0;row<rows;row++)for(let col=0;col<cols;col++){
+     const x=left+(col+.5+(row%2)*.35)/cols*width+rand(-8,8);
+     const y=ny+(row+.5)/rows*spread+rand(-7,7);
+     putCoin(x,y,'coin',Math.random()<.025?5:1,zone,irand(0,layers-1));
+   }
+   // Successive offset layers fill any view-through gaps in the pile.
+   for(let pass=0;pass<2;pass++)for(let row=0;row<rows;row++)for(let col=0;col<cols;col++){
+     const x=left+(col+.25+(pass*.37)+(row%2)*.2)/cols*width+rand(-7,7);
+     const y=ny+(row+.18+pass*.30)/rows*spread+rand(-8,8);
+     putCoin(x,y,'coin',1,zone,irand(0,layers-1));
+   }
+   for(let i=0;i<extra;i++)putCoin(rand(left,RIGHT-RAD),rand(ny,yLimit),'coin',1,zone,irand(0,layers-1));
+ }
+ putCoin(102,264,'orb',1,'top',5);putCoin(294,452,'orb',1,'bottom',3);putCoin(215,427,'orb',1,'bottom',3);
+ for(let i=0;i<ml('pearl');i++)putCoin(124+i*35,453-i*11,'orb',1,'bottom',2);
+ $overlay.classList.add('hide');viewPause=false;holding=false;lastTime=performance.now();ui(true);
+}
+function seed(zone,rows,cols,count,x1,x2,y1,y2,layer){const cells=[];for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)cells.push({x:x1+(c+.5+(r%2)*.11)*(x2-x1)/cols,y:y1+(r+.5)*(y2-y1)/rows});for(let i=0;i<Math.min(count,cells.length);i++){const q=cells[Math.floor((i+.5)*cells.length/Math.min(count,cells.length))];putCoin(q.x+rand(-1,1),q.y+rand(-1,1),'coin',Math.random()<.04?5:1,zone,layer);}}
+function putCoin(x,y,kind='coin',value=1,zone='top',layer=0){if(coins.length>=720)return false;coins.push({id:idSeq++,x:clamp(x,LEFT+RAD,RIGHT-RAD),y,vx:0,vy:0,kind,value,zone,layer,rise:0,overhang:0,bounce:0,unsupported:0,cd:0});return true}
+function addIncoming(kind='coin',value=1,x=null){if(coins.length+incoming.length>=780)return false;const px=x===null?rand(100,322):x;incoming.push({x:clamp(px,LEFT+RAD,RIGHT-RAD),y:90,vy:0,kind,value,age:0});return true}
+function give(n){s.bank=Math.min(99999,s.bank+n);s.emptyCycle=null}
+function announce(str,hot=false){s.announce=str;s.announceT=3.2;toast(str)}
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;$('toasts').append(d);setTimeout(()=>d.remove(),1480)}
+function star(x,y,color='#fbd07c',count=5){for(let i=0;i<count&&sparkles.length<180;i++)sparkles.push({x,y,vx:rand(-1.3,1.3),vy:rand(-2.4,-.5),life:rand(.25,.65),color});}
+function drop(force=false){if(!s?.running||s.choosing||s.paused||s.bank<=0||!force&&s.cool>0)return;if(!force)s.cool=Math.max(.10,.48-s.level*.017);const n=Math.min(s.buffs.batch,s.bank);for(let i=0;i<n;i++)if(addIncoming('coin',1,s.aim+rand(-8,8))){s.bank--;s.spent++;}ui();}
+
+const fmt=n=>{if(!Number.isFinite(n))return '∞';const v=Math.abs(n);for(const [base,u] of [[1e30,'No'],[1e27,'Oc'],[1e24,'Sp'],[1e21,'Sx'],[1e18,'Qi'],[1e15,'Qa'],[1e12,'T'],[1e9,'B'],[1e6,'M'],[1e3,'K']])if(v>=base){const d=v/base;return (n<0?'-':'')+(d>=100?d.toFixed(0):d>=10?d.toFixed(1):d.toFixed(2)).replace(/\.0+$/,'')+u;}return Math.round(n).toLocaleString('en-US');};
+const tier=()=>s?Math.min(5,Math.floor((s.level+Math.max(0,ml('legacy')-1))/3)):0;
+const power=()=>s?Math.min(1e17,Math.pow(1.55,rl('weight'))*Math.pow(2,rl('alchemy2'))*Math.pow(1.20,ml('alchemy'))*(evolved()?6:1)*(divine()?2:1)):1;
+function floating(x,y,n){if(lastScoreFx>0)return;lastScoreFx=.20;if(floatTexts.length>=7)floatTexts.shift();floatTexts.push({x:clamp(x+rand(-20,20),94,326),y:y-rand(2,20),t:.82,life:.82,text:'+'+fmt(n),size:clamp(12+Math.log10(Math.max(1,n))*1.5,14,24)});}
+function showerVisual(count=15,x=210,y=160){
+ for(let i=0;i<count&&coinRain.length<270;i++)coinRain.push({x:clamp(x+rand(-170,170),46,372),y:y+rand(-200,0),vx:rand(-58,58),vy:rand(30,135),rot:rand(0,Math.PI*2),size:rand(5.5,14),t:rand(1.3,2.3)});
+}
+function celebration(name,amount=18){
+ if(!s)return;s.highlight=1.1;stormT=1.55;flashT=.46;const b=$('stormBanner');$('stormNumber').textContent='×'+fmt(power());b.classList.add('visible');$('goldFlash').classList.add('active');showerVisual(amount+Math.min(55,s.level*5));
+ s.announce=name;s.announceT=2.5;
+}
+function addStorm(amount,quality=1){if(!s)return;s.stormQueue=Math.min(1800,s.stormQueue+Math.max(0,Math.floor(amount)));s.stormPower=quality;s.stormRate=0;showerVisual(Math.min(70,amount));}
+function inflateWorld(){
+ const lv=s.level;
+ // Acceleration is earned from completed builds, not simply from picking upgrades.
+ if(lv>=5&&rl('fountain')>0){addStorm(3+rl('fountain')*2,1)}
+ if(evolved()&&!s.evoReward){s.evoReward=true;celebration('☼ 王家の大錬成進化 ☼',45);addStorm(30+ml('legacy')*5,10)}
+ if(divine()&&!s.divineReward){s.divineReward=true;celebration('✧ 神託の共鳴進化 ✧',45);for(let i=0;i<2;i++)addIncoming('orb',1)}
+}
+function stormStep(dt){
+ if(!s||s.stormQueue<=0)return;
+ s.stormRate+=dt*(tier()>=3?38:tier()>=2?26:15);
+ let n=Math.min(7,Math.floor(s.stormRate));s.stormRate-=n;
+ while(n-->0&&s.stormQueue>0){
+  const val=(tier()>=4&&Math.random()<.032)?200:(tier()>=3&&Math.random()<.30)?10:(tier()>=1&&Math.random()<.14)?5:s.stormPower;
+  if(!addIncoming(val>=5?'bar':'coin',val,rand(67,352))){
+   // At the cap, convert overflow to score rather than freezing or spawning unseen bodies.
+   s.score=Math.min(1e19,s.score+Math.round(10*val*power()));
+   if(Math.random()<.25)floating(rand(110,310),rand(320,500),10*val*power());
+  }
+  s.stormQueue--;
+ }
+}
+
+function collect(c){
+ if(c.kind==='orb'){s.token++;s.orbCollected++;star(c.x,LOW_EDGE,'#8afde1',13);if(s.token>=5){s.token=0;s.bonus.push('cloon');celebration('✦ 魔力珠がクルーンを呼び覚ます ✦',26)}else announce('魔力珠 '+s.token+'/5');return;}
+ s.returned++;s.collected++;s.curseAt+=.30;s.combo=s.comboT>0?s.combo+1:1;s.comboT=3;
+ const val=c.value||1, m=s.fever>0?2.8:1, comb=Math.min(6,1+Math.floor((s.combo-1)/4)*.21);
+ const gained=Math.max(1,Math.round(val*10*power()*m*comb));
+ s.score=Math.min(1e19,s.score+gained);give(Math.max(1,Math.floor(val*power()*m*comb))+(Math.random()<Math.min(.65,rl('satchel')*.05+rl('refund')*.06+ml('refund')*.04)?1:0));
+ if(Math.random()<Math.min(.65,ml('refund')*.035+s.buffs.refund*.06))give(1+Math.floor(s.level/6));
+ if(c.value>=5){star(c.x,LOW_EDGE,'#ffe08a',9);floating(c.x,LOW_EDGE-22,gained);if(rl('rod')>0&&Math.random()<.12*rl('rod'))addStorm(1+Math.floor(rl('rod')/2),5);}
+ else if(s.level>=3&&(s.collected%3===0||gained>=15000))floating(c.x,LOW_EDGE-15,gained);
+ star(c.x,LOW_EDGE,'#fac66b',s.level>4?5:3);
+ if(rl('cascade')>0&&s.level>=4&&Math.random()<Math.min(.45,rl('cascade')*.045+(evolved()?.13:0)))addStorm(1+rl('cascade')+(evolved()?4:0),rl('rod')>2?5:1);
+ if(s.collected>=s.next){
+  s.level++;s.needed=5+s.level*5+s.level*s.level*2;s.next=s.collected+s.needed;
+  inflateWorld();
+ }
+}
+
+// Weighted outcome table. In real machines rates vary by model; these are gameplay odds.
+const SLOT_ODDS={normal:.092,chance:.255,jackpot:.004, special:.015};
+function odds(){const chance=s.kakuhen>0;return {hit:Math.min(.34,(chance?SLOT_ODDS.chance:SLOT_ODDS.normal)+ml('runeluck')*.004+rl('luck')*.01),jp:chance?.012:SLOT_ODDS.jackpot};}
+function randomSymbol(){return SYMS[irand(0,SYMS.length-1)];}
+function pickOutcome(){
+ const o=odds(),r=Math.random(), digits=['1','2','3','4','5','6','7','8','9'];
+ if(r<o.jp)return ['7','7','7'];
+ if(r<o.hit){
+  const special=Math.random()<Math.min(.45,(SLOT_ODDS.special+(s.kakuhen>0?.025:0))/Math.max(.001,o.hit-o.jp));
+  const num=special?SYMS[irand(9,12)]:(Math.random()<.55?['1','3','5','9'][irand(0,3)]:['2','4','6','8'][irand(0,3)]);
+  return [num,num,num];
+ }
+ let a,b,c;
+ if(Math.random()<.31){a=randomSymbol();b=a;do{c=randomSymbol()}while(c===a);}else{do{a=randomSymbol();b=randomSymbol();c=randomSymbol()}while(a===b&&b===c);}
+ // Reach is only suspense; the actual result is already decided.
+ return [a,b,c];
+}
+function startSpin(replay=false){if(!s?.running||s.choosing)return;if(spin){spinQueue=Math.min(queueCapacity(),spinQueue+1);ui();return;}s.spins++;beep(330,.06);const target=pickOutcome(),r0=target[0],r1=target[1],r2=target[2];spin={t:0,stops:[1.6,2.8,target[0]===target[1]?7.0:4.1],hold:0,from:reelSymbols.map(x=>SYMS.indexOf(x)),target,len:[5,7,9].map((v,i)=>v*SYMS.length+((SYMS.indexOf(target[i])-SYMS.indexOf(reelSymbols[i])+SYMS.length)%SYMS.length)),replay};}
+function settleSpin(){
+ const r=spin.target;reelSymbols=r.slice();spin=null;document.body.classList.remove('super-reach');
+ if(s.kakuhen>0)s.kakuhen--;
+ const match=r[0]===r[1]&&r[1]===r[2];
+ if(!match){beep(185,.16,'triangle');ui(true);return;}s.slotAfterglow=2.7;document.body.classList.add('slot-hit');beep(740,.21,'sawtooth');
+ const symbol=r[0];s.slotHits=(s.slotHits||0)+1;
+ if(/^\d$/.test(symbol)){
+  const n=Number(symbol);addStorm(n*10,Math.min(10,n>=5?5:1));
+  announce('✦ '+symbol+symbol+symbol+' MATCH · '+(n*10)+' COINS');
+  if(n%2===1){s.kakuhen=6+rl('luck');celebration('✧ ODD HIT · KAKUHEN ✧',12);}
+  if(n===7){beep(990,.42,'sawtooth');addIncoming('bar',100);s.bonus.push('cloon');celebration('✦ 777 · JACKPOT CHANCE ✦',40);}
+ }else if(symbol==='●'){addIncoming('orb',1);addIncoming('orb',1);announce('● MAGIC ORBS ×2');}
+ else if(symbol==='▤'){for(let i=0;i<5;i++)addIncoming('bar',[5,10,20,50,100][irand(0,4)]);announce('▥ GOLD BARS ×5');}
+ else if(symbol==='↻'){spinQueue=Math.min(queueCapacity(),spinQueue+2);announce('↻ DOUBLE REPLAY');}
+ else if(symbol==='✚'){give(12+rl('satchel')*3);announce('✚ BANK REFILL');}
+ if(Math.random()<Math.min(.42,rl('echo')*.06))queueSpins(1);
+ ui(true);
+}
+function queueSpins(n){spinQueue=Math.min(queueCapacity(),spinQueue+Math.max(0,n));ui();}
+function receiveItem(id){if(s.items.length>=4){give(2);return}s.items.push(id);announce('遺物入手 · '+ITEMS[id].name);ui(true)}
+function useItem(i){if(!s?.running||s.paused||s.choosing||i<0||i>=s.items.length)return;const id=s.items.splice(i,1)[0];if(id==='chest'){addIncoming('bar',5);addIncoming('bar',5);addIncoming('bar',10)}if(id==='potion')give(10);if(id==='ward')s.guard=22;if(id==='fever')s.fever=15;announce(ITEMS[id].name+' 使用');ui(true)}
+function currentDeck(){return PUSH_C+Math.sin(s.deckP)*PUSH_A}
+function incomingStep(dt){for(let i=incoming.length-1;i>=0;i--){const q=incoming[i];q.age+=dt;q.vy+=590*dt;q.y+=q.vy*dt;const dest=237+rand(-1,1);if(q.y>=dest){incoming.splice(i,1);putCoin(q.x,Math.max(UP_BACK+RAD+1,dest),q.kind,q.value,'top',Math.random()<.52?1:2);const c=coins[coins.length-1];s.pressure=Math.min(8,s.pressure+.8);s.feedImpulse=Math.min(7,s.feedImpulse+1.8);c.bounce=rand(3,5);c.vy=q.vy*.005;star(q.x,dest,'#f3c475',2);}}}
+function physicsStep(dt){const old=s.deckFront;s.deckP+=dt*1.72*s.buffs.speed*(1+ml('motor')*.03)*(s.fever>0?1.13:1);s.deckFront=currentDeck();const travel=s.deckFront-old;s.prevFront=old;
+ s.catchP+=dt*1.07;s.catcher=210+Math.sin(s.catchP)*110;s.cycles=Math.floor((s.deckP+Math.PI/2)/(Math.PI*2));
+ for(const c of coins){c.cd=Math.max(0,c.cd-dt);c.bounce=Math.max(0,c.bounce-dt*25);c.unsupported=Math.max(0,c.unsupported-dt);
+ if(c.zone==='flight')continue;
+ if(c.zone==='top'){
+  // Deposited weight compresses the bank on the forward stroke. With no deposits
+  // the medals ride the shelf without slowly crawling toward the lip.
+  c.y+=travel*.985 + (travel>0?travel*Math.min(.085,s.feedImpulse*.011):0) + c.vy*dt*.024;
+  c.x+=c.vx*dt*(c.kind==='orb'?.26:.08);
+  if(c.y<UP_BACK+RAD)c.y=UP_BACK+RAD;
+  c.vy*=c.kind==='orb'?.965:.86;c.vx*=c.kind==='orb'?.965:.88;
+ }else{
+  c.x+=c.vx*dt;c.y+=c.vy*dt;if(c.kind==='orb')c.vy+=13*dt;c.vx*=c.kind==='orb'?.965:.88;c.vy*=c.kind==='orb'?.975:.88;
+  if(c.y<s.deckFront+15+RAD){const corr=s.deckFront+15+RAD-c.y;c.y+=corr;c.vy=Math.max(c.vy,Math.max(0,travel/dt)*.35);}
+ }
+ }
+ // Iterative circle collision and impulse propagation. Spatial bins avoid O(n²) when crowded.
+ s.pressure=Math.max(0,s.pressure-dt*1.55);s.feedImpulse=Math.max(0,s.feedImpulse-dt*.85);
+ const cellSize=RAD*2.5;
+ for(let pass=0;pass<(coins.length>420?1:2);pass++){
+  const map=new Map();for(const c of coins){if(c.zone==='flight')continue;const cx=Math.floor(c.x/cellSize),cy=Math.floor(c.y/cellSize);const k=c.zone+'/'+c.layer+'/'+cx+'/'+cy;if(!map.has(k))map.set(k,[]);map.get(k).push(c)}
+  for(const c of coins){if(c.zone==='flight')continue;const cx=Math.floor(c.x/cellSize),cy=Math.floor(c.y/cellSize);
+   for(let xx=cx-1;xx<=cx+1;xx++)for(let yy=cy-1;yy<=cy+1;yy++){const arr=map.get(c.zone+'/'+c.layer+'/'+xx+'/'+yy);if(!arr)continue;for(const o of arr){if(o.id<=c.id)continue;const dx=o.x-c.x,dy=o.y-c.y,d2=dx*dx+dy*dy,min=RAD*2.04*(c.kind==='orb'||o.kind==='orb'?.89:1);if(d2>=min*min||d2===0)continue;const dist=Math.sqrt(d2),over=(min-dist)*.42,nx=dx/dist,ny=dy/dist;c.x-=nx*over;o.x+=nx*over;c.y-=ny*over;o.y+=ny*over;const impulse=over/dt*(c.kind==='orb'||o.kind==='orb'?.11:.065);c.vx-=nx*impulse;o.vx+=nx*impulse;c.vy-=ny*impulse;o.vy+=ny*impulse;}}}
+  for(const c of coins){if(c.zone==='flight')continue;if(c.zone==='top'){c.x=clamp(c.x,LEFT+RAD,RIGHT-RAD);c.y=Math.max(UP_BACK+RAD,c.y);}else{if(c.y<SIDE_OPEN||s.guard>0||s.buffs.wall>0)c.x=clamp(c.x,LEFT+RAD*.72,RIGHT-RAD*.72);c.y=Math.max(s.deckFront+15+RAD,c.y);}c.vx=clamp(c.vx,-105,105);c.vy=clamp(c.vy,-105,105);}
+ }
+ // Exit / flight transitions
+ for(let i=coins.length-1;i>=0;i--){const c=coins[i];if(c.zone==='top'){if(c.y>s.deckFront+RAD*.63)c.overhang+=dt;else c.overhang=Math.max(0,c.overhang-dt*2);if(c.overhang>(s.feedImpulse>.05?.09:.26)){c.zone='flight';c.flight=0;c.flightFrom=c.y;c.flightTo=Math.max(384,s.deckFront+40);c.bounce=0;s.transfers++;}}
+ else if(c.zone==='bottom'){
+  if(c.y>SIDE_OPEN&&s.guard<=0&&s.buffs.wall===0&&(c.x<LEFT-RAD*.55||c.x>RIGHT+RAD*.55)){coins.splice(i,1);s.sideLost++;continue;}
+  if(c.y>LOW_EDGE+RAD*.63){coins.splice(i,1);frontDrops.push({x:c.x,y:c.y,depth:0,vy:0,age:0,kind:c.kind,value:c.value,id:c.id,hit:Math.abs(c.x-s.catcher)<22+ml('collector')*2+s.buffs.collector*5});if(frontDrops.length>100)frontDrops.shift();if(Math.abs(c.x-s.catcher)<22+ml('collector')*2+s.buffs.collector*5&&c.cd<=0)startSpin();collect(c);}}
+ }
+ for(const c of coins){if(c.zone!=='flight')continue;c.flight+=dt;const dur=.35;const t=Math.min(1,c.flight/dur);c.y=c.flightFrom+(c.flightTo-c.flightFrom)*(t*t*(3-2*t));if(t>=1){c.zone='bottom';c.vx=0;c.vy=13;c.bounce=rand(3,5);c.overhang=0;for(const o of coins){if(o===c||o.zone!=='bottom')continue;const dx=Math.abs(o.x-c.x),dy=o.y-c.y;if(dx<55&&dy>0&&dy<140)o.vy+=Math.max(0,18*(1-dx/55)*(1-dy/150));}}}
+}
+function gameStep(dt){if(!s||!s.running||s.paused||s.choosing)return;orbReplenish-=dt;const orbsLive=coins.filter(c=>c.kind==='orb').length+incoming.filter(c=>c.kind==='orb').length;if(orbsLive<3&&orbReplenish<=0){addIncoming('orb',1,rand(120,306));orbReplenish=1.8;}s.runTime+=dt;if(s.runTime>=s.curseAt){s.curseCount++;const toll=Math.min(12,2+s.curseCount*2);s.bank=Math.max(0,s.bank-toll);s.curseAt+=115;announce("古代の呪い · 金貨 -"+toll);}s.lock=Math.max(0,s.lock-dt);s.cool=Math.max(0,s.cool-dt);s.guard=Math.max(0,s.guard-dt);s.fever=Math.max(0,s.fever-dt);s.comboT=Math.max(0,s.comboT-dt);s.announceT=Math.max(0,s.announceT-dt);
+ if(holding)drop();if(s.buffs.auto&&s.bank>0){s.autoT+=dt;if(s.autoT>Math.max(.55,5.8-s.buffs.auto*.75-s.level*.11)){s.autoT=0;drop(true)}}
+ stormStep(dt);
+ for(const d of frontDrops){d.age+=dt;d.vy+=740*dt;d.y+=d.vy*dt;d.depth+=dt*4.6;}frontDrops=frontDrops.filter(d=>d.age<.9);
+ incomingStep(dt);s.slotAfterglow=Math.max(0,(s.slotAfterglow||0)-dt);if(!s.slotAfterglow)document.body.classList.remove('slot-hit');if(spin){spin.t+=dt;const reach=spin.target[0]===spin.target[1];if(spin.t>=spin.stops[2]+.18)settleSpin();else if(reach&&spin.t>spin.stops[1]&&spin.t<spin.stops[2]){if(Math.floor((spin.t-dt)*2.2)!==Math.floor(spin.t*2.2))beep(600+Math.floor(spin.t*2)*80,.08,'triangle',.025)}}else if(spinQueue>0&&!s.slotAfterglow){spinQueue--;startSpin(true)}
+ accum+=dt;let n=0;const hz=coins.length>420?45:75,step=1/hz;while(accum>=step&&n<6){physicsStep(step);accum-=step;n++}if(n===6)accum=0;
+ for(const p of sparkles){p.x+=p.vx*dt*60;p.y+=p.vy*dt*60;p.vy+=.07*dt*60;p.life-=dt}
+ for(const v of coinRain){v.x+=v.vx*dt;v.y+=v.vy*dt;v.vy+=260*dt;v.rot+=dt*3;v.t-=dt;}
+ coinRain=coinRain.filter(v=>v.t>0&&v.y<615);for(const f of floatTexts){f.y-=dt*41;f.t-=dt;}floatTexts=floatTexts.filter(f=>f.t>0);
+ lastScoreFx=Math.max(0,lastScoreFx-dt);flashT=Math.max(0,flashT-dt);stormT=Math.max(0,stormT-dt);if(stormT===0)$('stormBanner').classList.remove('visible');if(flashT===0)$('goldFlash').classList.remove('active');
+ s.announceT=Math.max(0,s.announceT);sparkles=sparkles.filter(p=>p.life>0);
+ if(s.bonus.length&&!spin){const b=s.bonus.shift();if(b==='vault')openVault();else if(b==='cloon')openCloon();else if(b==='upgrade')openUpgrade();}
+ if(s.running&&s.bank===0&&s.emptyCycle===null)s.emptyCycle=s.cycles;
+ if(s.bank>0)s.emptyCycle=null;
+ // Reserves exhausted: leave three complete pusher strokes to recover outstanding gold.
+ if(s.bank===0&&s.emptyCycle!==null&&s.cycles-s.emptyCycle>=3&&!incoming.length&&!spin&&s.bonus.length===0)endRun();
+ if(!s._nextUi||s.runTime>=s._nextUi){ui();s._nextUi=s.runTime+.12;}
+}
+function shardsEarned(){const earned=Math.max(16,Math.floor((17+s.collected*.36+s.orbCollected*3+s.level*5+Math.log10(Math.max(1,s.score))*2.1)*(1+ml('salvage')*.12)));return profile.runs===0?Math.max(45,earned):earned}
+
+function endRun(){if(!s||s.ended)return;s.running=false;s.ended=true;s.choosing=false;holding=false;if(vaultDemo||floodDemo){vaultDemo=false;floodDemo=false;showHome();return;}const gain=shardsEarned();profile.shards+=gain;profile.runs++;profile.best=Math.max(profile.best,s.score);profile.total+=s.score;persist();showResult(gain)}
+function pickChoices(n=3){
+ const owned=equipped(),eligible=UPG.filter(u=>rl(u.id)<u.max&&(rl(u.id)>0||owned<RELIC_SLOTS)).filter(u=>u.id!=='auto'||s.level>=2);
+ const pool=eligible.slice(),out=[];
+ for(let i=0;i<n&&pool.length;i++){
+  const weights=pool.map(u=>(u.rarity||5)*(rl(u.id)>0?2.3:1));
+  let r=Math.random()*weights.reduce((a,b)=>a+b,0),idx=0;
+  for(;idx<pool.length-1;idx++){r-=weights[idx];if(r<0)break;}
+  out.push(pool.splice(idx,1)[0]);
+ }
+ return out;
+}
+function overlay(html){$modal.classList.toggle('shop-dialog',overlayMode==='shop');if(!['vaultIntro','vault','vaultReward'].includes(overlayMode))$modal.classList.remove('vault-dialog');$modal.innerHTML=html;$overlay.classList.remove('hide');holding=false;lastTime=performance.now()}
+function openUpgrade(){if(!s?.running)return;s.choosing=true;overlayMode='upgrade';const make=()=>{
+ const eligible=UPG.filter(u=>rl(u.id)<u.max).sort((a,b)=>upgradePrice(a)-upgradePrice(b));
+ overlay(`<h1><small>UPGRADE SHOP</small>金貨ショップ</h1><p class="shop-note">残り金貨 <b>${fmt(s.bank)}</b>　／　商品ごとに値上がり</p><div class="upgrade-shop">${eligible.map(u=>{const cost=upgradePrice(u),ok=s.bank>=cost;return `<button class="upgrade-tile" data-upgrade="${u.id}" ${ok?'':'disabled'}><span class="uicon">${u.ic}</span><span class="uinfo"><b>${u.name} <em>Lv ${rl(u.id)+1}/${u.max}</em></b><small>${u.desc}</small><i>${u.trade}</i></span><strong>${fmt(cost)} 🪙</strong></button>`}).join('')}</div><button class="secondary" id="closeUpgrade">← 戻る</button>`);
+ $modal.querySelectorAll('[data-upgrade]').forEach(b=>b.onclick=()=>{const u=UPG.find(x=>x.id===b.dataset.upgrade);if(!u)return;const cost=upgradePrice(u);if(s.bank<cost||rl(u.id)>=u.max)return;s.bank-=cost;s.shopBought++;s.upgrades[u.id]=(s.upgrades[u.id]||0)+1;u.act(rl(u.id));inflateWorld();beep(660,.17,'triangle');make();ui(true)});
+ $('closeUpgrade').onclick=()=>{s.choosing=false;$overlay.classList.add('hide');lastTime=performance.now();ui(true)};};make();}
+
+function hideAltar(){const el=$('altarShrine');if(el){el.classList.remove('summoned','doors-open','landed','reward');el.querySelector('.altar-result').innerHTML='';}}
+function openCloon(){
+ if(!s?.running)return;
+ s.choosing=true;holding=false;overlayMode='cloon';$overlay.classList.add('hide');
+ const token=++cloonSceneToken,pick=irand(0,7),holes=CLOON_HOLES;
+ const shrine=$('altarShrine'),wheel=$('altarWheel'),ball=$('altarOrb'),status=$('altarStatus'),result=$('altarResult');
+ shrine.classList.remove('doors-open','landed','reward');shrine.classList.add('summoned');
+ result.innerHTML='';status.textContent='✦ 祭壇の扉が開く…';
+ // The altar is part of the machine, not an overlay dialog. Its gates are normally closed.
+ wheel.innerHTML=holes.map((h,i)=>{
+  const a=i*Math.PI/4-Math.PI/2;
+  return `<span class="altar-hole" style="--x:${(Math.cos(a)*35).toFixed(2)}%;--y:${(Math.sin(a)*35).toFixed(2)}%" title="${h.label}">${h.title}</span>`;
+ }).join('')+'<span class="altar-orb" id="altarOrb"></span>';
+ const rollingBall=$('altarOrb'),duration=5200,delay=900;
+ let finished=false,start=performance.now();
+ cloonActive={pick,angle:-Math.PI/2,radius:.42,progress:0,opening:true,door:0};
+ function settle(){
+  if(finished||token!==cloonSceneToken||!s?.running)return;
+  finished=true;cloonSceneToken++;
+  shrine.classList.add('landed');const h=holes[pick];
+  status.textContent='✦ '+h.label+' ✦';
+  if(h.title==='VAULT'){
+    hideAltar();cloonActive=null;openVault();return;
+  }
+  h.act();cloonActive=null;
+  shrine.classList.add('reward');
+  result.innerHTML=`<div class="altar-prize"><b>${h.ic} ${h.title}</b><span>${h.label}</span></div><button class="woodbtn" id="altarContinue">▶ 探索へ戻る</button>`;
+  $('altarContinue').onclick=()=>{hideAltar();s.choosing=false;overlayMode='play';lastTime=performance.now();ui(true);};
+  ui(true);
+ }
+ $('altarSkip').onclick=()=>{shrine.classList.add('doors-open');settle()};
+ function animate(t){
+  if(finished||token!==cloonSceneToken||!s?.running)return;
+  const elapsed=t-start;
+  if(elapsed>=delay)shrine.classList.add('doors-open');
+  if(cloonActive)cloonActive.door=clamp((elapsed-delay)/800,0,1);
+  const p=clamp((elapsed-delay)/duration,0,1);
+  if(p>0){
+    // Monotonic deceleration: the ball loses angular velocity and spirals inward.
+    // The final position is the centre of the chosen hole, where its size/depth sinks.
+    const targetAngle=pick*Math.PI/4-Math.PI/2;
+    const revolutions=4*Math.PI*2;
+    const ease=1-Math.pow(1-p,2.9);
+    const angle=-Math.PI/2+revolutions*ease+(targetAngle+Math.PI/2)*p;
+    const radius=35.5-1.8*p;
+    const scale=p>.93?1-(p-.93)/.07*.80:1;
+    rollingBall.style.transform=`translate(-50%,-50%) translate(${(Math.cos(angle)*radius).toFixed(2)}cqw,${(Math.sin(angle)*radius).toFixed(2)}cqw) scale(${scale.toFixed(3)})`;
+    cloonActive={pick,angle,radius,p,progress:p,opening:false,door:clamp((elapsed-delay)/800,0,1)};
+    status.textContent=p>.88?'✧ どの穴に落ちる…？':p>.6?'✧ 球が失速している…':'✧ 魔力珠が巡っている…';
+  }
+  if(p>=1){settle();return;}
+  requestAnimationFrame(animate);
+ }
+ requestAnimationFrame(animate);
+}
+function createVaultRewards(){const magnitude=1+Math.floor(s.level/2);
+ return [
+  {ic:'♜',name:'王の献上',desc:'残り金貨 +'+(16+magnitude*8),detail:'王の金貨袋が満たされた。',act:()=>{give(16+magnitude*8);celebration('✦ ROYAL GOLD ✦',30)}},
+  {ic:'▥',name:'黄金の大瀑布',desc:'金貨と金塊 '+(45+magnitude*18)+'個が降り注ぐ',detail:'宝物庫の奥から黄金の洪水が押し寄せた。',act:()=>{addStorm(45+magnitude*18,10);celebration('☼ GOLDEN AVALANCHE ☼',55)}},
+  {ic:'✧',name:'神託の大暴走',desc:'30秒間の財宝×2.8＋神託4回',detail:'運命のルーンが限界を超えて共鳴した。',act:()=>{s.fever=30;queueSpins(4);addStorm(18,5);celebration('✧ DIVINE FRENZY ✧',40)}}
+ ].sort(()=>Math.random()-.5);
+}
+
+function closeVaultReward(){
+ if(!s?.running)return;
+ s.choosing=false;overlayMode='play';$modal.classList.remove('vault-dialog');$overlay.classList.add('hide');lastTime=performance.now();ui(true);
+}
+function showVaultChoices(rewards){
+ if(!s?.running)return;
+ vaultSceneToken++;
+ overlayMode='vault';$modal.classList.add('vault-dialog');
+ overlay(`<h1><small>THE ANCIENT VAULT</small>王家の宝物庫</h1><p>古代の財宝が目覚めた。持ち帰れる秘宝はひとつだけ。</p><div class="vault-choices-label">✧ SELECT YOUR TREASURE ✧</div><div class="cards vault-choices">${rewards.map((r,i)=>`<button class="choice" data-vault="${i}"><span class="ic">${r.ic}</span><span><b>${r.name}</b><small>${r.desc}</small></span></button>`).join('')}</div>${vaultDemo?'<div class="jp-demo-flag">演出テスト中：セーブデータに影響しません</div>':''}`);
+ $modal.querySelectorAll('[data-vault]').forEach(b=>b.onclick=()=>{
+  if(!s?.running||overlayMode!=='vault')return;
+  const reward=rewards[+b.dataset.vault];const beforeBank=s.bank,beforeIncoming=incoming.length,beforeSpins=spinQueue;
+  reward.act();overlayMode='vaultReward';
+  const difference=reward.name==='王の献上'?`残り金貨 ${beforeBank} → ${s.bank}`:reward.name==='黄金の大瀑布'?`金貨の大瀑布 ${s.stormQueue}個`:`追加抽選 +${spinQueue-beforeSpins}回 · 大祝福`;
+  overlay(`<div class="vault-burst"></div><h1><small>TREASURE ACQUIRED</small>秘宝を獲得！</h1><div class="vault-reward-visual">${reward.ic}</div><div class="vault-reward-title">${reward.name}</div><p>${reward.detail}</p><div class="summary"><div>今回の報酬<strong style="font-size:15px">${difference}</strong></div></div><div class="actions"><button class="woodbtn big" id="vaultContinue">▶ 探索へ戻る</button>${vaultDemo?'<button class="secondary" id="vaultReplay">↻ 宝物庫をもう一度見る</button><button class="secondary" id="demoHome">← タイトルに戻る</button>':''}</div>`);
+  $('vaultContinue').onclick=closeVaultReward;
+  if(vaultDemo){$('vaultReplay').onclick=()=>{s.choosing=false;openVault();};$('demoHome').onclick=()=>{s.running=false;vaultDemo=false;showHome()}};
+  ui(true);
+ });
+}
+function openVault(){
+ if(!s?.running)return;
+ s.choosing=true;holding=false;
+ const rewards=createVaultRewards();
+ const token=++vaultSceneToken;
+ overlayMode='vaultIntro';$modal.classList.add('vault-dialog');
+ const coins=Array.from({length:38},(_,i)=>{
+  const x=(i*43+17)%91+5, y=((i*19)%64)-8,w=17+(i%4)*4,rot=(i*43)%90-45;
+  return `<i style="--x:${x}%;--y:${y}px;--w:${w}px;--rot:${rot}deg"></i>`;
+ }).join('');
+ const particles=Array.from({length:48},(_,i)=>{
+  const x=14+(i*37)%76,y=16+(i*23)%70,size=2+i%4,
+  dx=((i*29)%130-65),dy=-30-((i*11)%120),delay=((i*7)%14)*.07,duration=(1.2+(i%5)*.19).toFixed(2);
+  return `<span style="--x:${x}%;--y:${y}%;--size:${size}px;--dx:${dx}px;--dy:${dy}px;--delay:${delay}s;--duration:${duration}s;--color:${i%5===0?'#b4fff0':'#ffe6a1'}"></span>`;
+ }).join('');
+ overlay(`<h1><small>ANCIENT TREASURE GATE</small>封印の宝物庫</h1>
+ <div class="vault-intro" id="vaultIntro">
+  <div class="vault-heading">✦ 五つの魔力珠が共鳴 ✦<small>AWAKEN THE ANCIENT VAULT</small></div>
+  <div class="vault-orbs">${Array.from({length:5},(_,i)=>`<span style="--i:${i}"></span>`).join('')}</div>
+  <div class="vault-temple">
+   <div class="vault-pillar l"></div><div class="vault-pillar r"></div>
+   <div class="vault-lintel">✥ ✧ ✥</div>
+   <div class="vault-reveal"><div class="vault-relics"><span>♛</span><span>◆</span><span>♜</span></div><div class="vault-coin-pile">${coins}</div></div>
+   <div class="vault-gate left"></div><div class="vault-gate right"></div>
+   <div class="vault-lock">✧</div><div class="vault-shock"></div>
+   <div class="vault-particles">${particles}</div>
+  </div>
+  <div class="vault-callout" id="vaultWait">魔力珠が封印の鍵に力を注ぐ…</div>
+  <button class="secondary" id="vaultSkip">演出をスキップ ›</button>
+ </div>${vaultDemo?'<div class="jp-demo-flag">ジャックポット演出テスト · 永続データには影響しません</div>':''}`);
+ const inStage=()=>vaultSceneToken===token&&overlayMode==='vaultIntro'&&s?.running;
+ const finish=()=>{if(inStage())showVaultChoices(rewards)};
+ $('vaultSkip').onclick=finish;
+ setTimeout(()=>{if(!inStage())return;$('vaultIntro')?.classList.add('charged');const v=$('vaultWait');if(v)v.textContent='✧ ルーンが解け始めた…';},1150);
+ setTimeout(()=>{if(!inStage())return;$('vaultIntro')?.classList.add('open');const v=$('vaultWait');if(v)v.textContent='✦ 封印解除！ 宝物庫が開いた！ ✦';},1950);
+ setTimeout(finish,4700);
+}
+function startVaultDemo(){
+ reset();vaultDemo=true;
+ // Simulate the actual five-orb threshold without consuming coins or altering the save.
+ s.token=4;collect({kind:'orb',x:s.catcher});
+ s.bonus=s.bonus.filter(x=>x!=='vault');ui(true);
+ openVault();
+}
+function startCloonDemo(){reset();vaultDemo=true;openCloon();}
+function startFloodDemo(){
+ reset();floodDemo=true;s.bank=360;s.level=10;s.collected=75;s.needed=35;s.next=110;s.upgrades={weight:5,cascade:5,alchemy2:3,auto:4,motor:3,rod:4};s.buffs.auto=4;s.buffs.cascade=5;s.buffs.batch=2;s.fever=90;s.curseAt=99999;
+ for(let i=0;i<8;i++)collect({kind:'bar',value:10,x:rand(100,320)});s.announce='☼ 黄金の大洪水デモ！';s.announceT=3;addStorm(180,5);celebration('☼ GOLDEN AVALANCHE ☼',70);ui(true);
+}
+function showHome(){overlayMode='home';overlay(`<h1><small>THE RELIC VAULT</small>遺跡の秘宝庫</h1><p>金貨を押し出して、もっと大きな金貨を稼ごう。<br>SHOPで強化、777でクルーン。</p><div class="summary"><div>所持する遺跡の欠片<strong>${fmt(profile.shards)}</strong></div><div>これまでの最高記録<strong>${fmt(profile.best)}</strong></div></div><div class="actions"><button class="woodbtn big" id="start">▶ 探索に出発</button><button class="secondary" id="shop">⚒ 工房と祭壇を開く</button><button class="secondary" id="cloonDemo">◉ クルーン抽選を試す</button><button class="secondary" id="vaultDemo">✧ 宝物庫の開放デモ</button><button class="secondary" id="floodDemo">☼ 後半の大インフレを試す</button></div><p class="footnote">保存はブラウザ内に自動記録。マウス・スマホのタッチに対応。</p>`);$('start').onclick=reset;$('shop').onclick=showShop;$('cloonDemo').onclick=startCloonDemo;$('vaultDemo').onclick=startVaultDemo;$('floodDemo').onclick=startFloodDemo;}
+function showShop(){
+ overlayMode='shop';
+ const categories=[['鍛冶工房','⚒'],['魔術祭壇','✧'],['盗賊ギルド','♜']];
+ let h=`<div class="shop-heading"><div><small>PERMANENT UPGRADES</small><h1>工房と祭壇</h1></div><div class="shop-wallet">遺跡の欠片<strong>${fmt(profile.shards)}</strong></div></div>`;
+ h+=`<div class="shop-legend">強化を選んで次の遠征へ。初回帰還では必ず1つ購入できる。</div>`;
+ h+='<div class="shop-grid">';
+ for(const [category,ico] of categories){
+   h+=`<section class="shop-group"><h3>${ico} ${category}</h3>`;
+   for(const m of FORGE.filter(m=>m.group===category)){
+     const lv=ml(m.id),cost=metaCost(m),can=profile.shards>=cost&&lv<m.max;
+     h+=`<div class="shop-upgrade ${can?'buyable':''}"><div class="shop-ico">${m.ic}</div><div class="shop-desc"><b>${m.name}<em>Lv ${lv}/${m.max}</em></b><small>${m.desc}</small></div><button data-buy="${m.id}" ${can?'':'disabled'}>${lv>=m.max?'MAX':fmt(cost)+' ◈'}</button></div>`;
+   }
+   h+='</section>';
+ }
+ h+='</div><button class="woodbtn shop-return" id="back">'+(s?.ended?'▶ 次の遠征へ':'← ホームに戻る')+'</button>';
+ overlay(h);
+ $modal.classList.add('shop-dialog');
+ $modal.querySelectorAll('[data-buy]').forEach(b=>b.onclick=()=>{
+   const m=FORGE.find(x=>x.id===b.dataset.buy);const cost=metaCost(m);
+   if(ml(m.id)>=m.max||profile.shards<cost)return;
+   profile.shards-=cost;profile.levels[m.id]=ml(m.id)+1;persist();showShop();
+ });
+ $('back').onclick=()=>s?.ended?reset():showHome();
+}
+function showResult(gain){overlayMode='result';overlay(`<h1><small>EXPEDITION COMPLETE</small>探索から帰還</h1><p>金貨袋は空になった。<br>けれど遺跡の欠片は持ち帰った。</p><div class="summary"><div>残りコイン<strong>${fmt(s.bank)}</strong></div><div>獲得した欠片<strong>+${fmt(gain)}</strong></div></div><div class="summary"><div>回収した金貨<strong>${s.collected}</strong></div><div>選んだ遺物<strong>${s.level}</strong></div><div>神託抽選<strong>${s.spins}</strong></div></div><div class="actions"><button id="toShop" class="woodbtn big">⚒ 永続強化を選ぶ</button><button id="restart" class="secondary">▶ すぐに再遠征</button></div>`);$('toShop').onclick=showShop;$('restart').onclick=reset;}
+function pause(){if(!s?.running||s.choosing)return;s.paused=!s.paused;holding=false;if(s.paused){overlayMode='pause';overlay(`<h1>探索を一時停止</h1><p>宝物庫は逃げない。<br>準備ができたら続きから。</p><div class="actions"><button class="woodbtn big" id="resume">▶ 探索を再開</button><button class="secondary" id="retreat">↻ やり直す（報酬なし）</button><button class="secondary" id="homePause">⌂ ホームへ戻る</button></div>`);$('resume').onclick=()=>{s.paused=false;$overlay.classList.add('hide');lastTime=performance.now()};$('retreat').onclick=()=>{s.paused=false;reset()};$('homePause').onclick=()=>{s.paused=false;showHome()}}else $overlay.classList.add('hide')}
+function ui(force=false){if(!s)return;$('reserve').textContent=fmt(s.bank);$('score').textContent=fmt(Math.min(1e18,...UPG.filter(u=>rl(u.id)<u.max).map(u=>upgradePrice(u))));$('multiplier').textContent='×'+fmt(power());$('frenzyLevel').textContent=evolved()?'☼ EVOLVED':divine()?'✧ DIVINE':power()>30?'✦ GOLD RUSH':'✦ RELICS';$('frenzyFill').style.width=Math.min(100,(s.collected/Math.max(1,s.next))*100)+'%';$('frenzyLevel').parentElement.classList.toggle('hyped',evolved()||divine());$('next').innerHTML=Math.max(0,s.next-s.collected)+'<span class="unit">枚</span>';$('tokens').textContent=s.token+'/5';$('queueCount').textContent='神託 '+spinQueue+' / '+queueCapacity();$('drop').disabled=!s.running||s.choosing||s.paused;$('drop').textContent='✦ SHOP';$('status').textContent=s.announceT>0?s.announce:s.bank===0?`金貨切れ · あと${Math.max(0,3-(s.cycles-(s.emptyCycle??s.cycles)))}往復で撤退`:s.stormQueue>0?'☼ 金貨大洪水 · あと'+s.stormQueue+'個':s.fever>0?'✧ 黄金の祝福 · 金貨2.8倍':s.kakuhen>0?'✧ 確変 · 残り'+s.kakuhen+'回':spin?'✧ 運命のルーン盤 回転中':s.curseAt-s.runTime<14?`☠ 遺跡の呪いまで ${Math.ceil(s.curseAt-s.runTime)}秒`:`盤面タップで投入 · AUTO ${s.buffs.auto?'ON':'OFF'}`;$('status').classList.toggle('hot',s.announceT>0||s.fever>0);
+ if(force){const box=$('items');box.replaceChildren();if(!s.items.length)box.innerHTML='<span style="font-size:10px;color:#c7aa82">アイテムなし</span>';s.items.forEach((id,i)=>{const b=document.createElement('button');b.className='item';b.textContent=ITEMS[id].ic+' '+ITEMS[id].name;b.onclick=()=>useItem(i);box.append(b)})}}
+function fill(color,x,y,w,h){ctx.fillStyle=color;ctx.fillRect(x,y,w,h)}
+function line(color,x,y,xx,yy,width=1){ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(xx,yy);ctx.stroke()}
+function poly(color,points){ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(...points[0]);for(let i=1;i<points.length;i++)ctx.lineTo(...points[i]);ctx.closePath();ctx.fill()}
+function text(v,x,y,color,size=10,align='center',font='serif'){ctx.textAlign=align;ctx.textBaseline='middle';ctx.font=`bold ${size}px ${font}`;ctx.fillStyle=color;ctx.fillText(v,x,y)}
+function wood(x,y,w,h){const g=ctx.createLinearGradient(x,y,x+w,y);g.addColorStop(0,'#4e2d1a');g.addColorStop(.19,'#8d5530');g.addColorStop(.5,'#704222');g.addColorStop(.84,'#ad7542');g.addColorStop(1,'#4c2e20');fill(g,x,y,w,h);for(let i=0;i<6;i++)line(i%2?'#38231660':'#c08a5240',x+2,y+7+i*31,x+w-2,y+7+i*31,1)}
+function stone(x,y,w,h){const g=ctx.createLinearGradient(x,y,x,y+h);g.addColorStop(0,'#bfb098');g.addColorStop(.35,'#958f75');g.addColorStop(1,'#504c41');fill(g,x,y,w,h);line('#dfcfa3',x,y,x+w,y,2)}
+function renderBackdrop(){const sky=ctx.createLinearGradient(0,0,0,H);sky.addColorStop(0,'#717b6d');sky.addColorStop(.22,'#293f3a');sky.addColorStop(.45,'#142a2a');sky.addColorStop(1,'#101817');fill(sky,0,0,W,H);
+ // Backdrop: distant mountain temple and mystical water, drawn in chunky pixels.
+ poly('#555f56',[[0,145],[45,80],[72,126],[116,61],[155,112],[220,57],[268,140],[343,75],[420,135],[420,290],[0,290]]);
+ poly('#3b5752',[[0,146],[45,126],[88,154],[141,103],[179,151],[242,106],[303,161],[354,122],[420,161],[420,290],[0,290]]);
+ fill('#508f91',0,155,W,64);for(let y=165;y<215;y+=11){line('#b1dfbb55',0,y,420,y,3);for(let x=13;x<420;x+=55)line('#e0e2c388',x,y+4,x+18,y+4,2)}
+ // temple arch and stonework
+ stone(61,8,298,19);stone(82,22,256,18);stone(86,0,39,158);stone(295,0,39,158);
+ for(const cx of [105,313]){for(let y=15;y<155;y+=20){fill('#ddd2af44',cx-21,y,42,2);fill('#3e4a43',cx-13,y+6,5,7)}}
+ fill('#282f2a',125,45,170,95);poly('#1f2926',[[120,45],[209,1],[299,45]]);poly('#bdaf8e',[[118,40],[209,4],[301,40],[294,49],[210,19],[125,49]]);
+ stone(119,138,182,14);fill('#242b28',136,61,149,70);
+ const glow=ctx.createRadialGradient(209,102,5,209,102,61);glow.addColorStop(0,'#d7e7ae66');glow.addColorStop(.38,'#8fcdad44');glow.addColorStop(1,'#47635500');fill(glow,141,62,138,76);
+ for(const r of [36,28,19]){ctx.strokeStyle=r===36?'#c6c28e':r===28?'#769f7f':'#d5c895';ctx.lineWidth=r===36?2:1;ctx.beginPath();ctx.arc(209,101,r,0,Math.PI*2);ctx.stroke()}
+ for(let i=0;i<12;i++){const a=i*Math.PI/6;const x=209+Math.cos(a)*33,y=101+Math.sin(a)*33;fill(i%3===0?'#e4d7a4':'#88aa93',x-2,y-2,4,4);line('#a2bda2',209+Math.cos(a)*22,101+Math.sin(a)*22,209+Math.cos(a+.17)*30,101+Math.sin(a+.17)*30)}
+ poly('#c0cda0',[[209,76],[223,102],[209,125],[195,102]]);poly('#567c73',[[209,85],[216,102],[209,116],[203,102]]);
+ for(const [xx,side] of [[90,1],[328,-1]]){for(let i=0;i<6;i++){const v=xx+side*i*4,y=30+i*22;line('#3d7251',xx,y,v,y+19,3);line('#6d9867',v,y+4,v+side*12,y-2,2)}}
+ text('✥',209,132,'#ddca91',10);
+ // wood counter and rune panel surround
+ wood(66,143,288,69);fill('#1f1714',80,152,261,51);fill('#a2824e',85,157,251,39);fill('#0c1716',91,162,239,31);
+ for(let i=0;i<3;i++){
+ const x=94+i*80;fill('#4b3826',x,165,74,24);fill('#1b2020',x+3,167,68,20);
+ }
+ // arch flames
+ for(const x of [52,365]){fill('#2b2a23',x-9,128,18,6);fill('#c9a45e',x-2,105,4,26);poly('#f2c65b',[[x,100],[x-6,119],[x+4,115],[x+7,125],[x+12,111]]);poly('#ffe3a4',[[x+1,108],[x-1,119],[x+6,117]])}
+ // wooden side walls and inset panels
+ poly('#1f1d15',[[0,180],[62,180],[50,620],[0,620]]);poly('#1f1d15',[[420,180],[358,180],[370,620],[420,620]]);
+ wood(0,190,50,430);wood(370,190,50,430);for(let y=218;y<600;y+=58){line('#342719',0,y,53,y+10,3);line('#342719',367,y+10,420,y,3)}
+ for(let y=227;y<565;y+=60){fill('#9e8853',28,y,5,5);fill('#9e8853',388,y,5,5)}
+ // world stage floors and borders
+ poly('#2b231b',[[60,207],[360,207],[385,558],[35,558]]);
+ const bed=ctx.createLinearGradient(0,215,0,557);bed.addColorStop(0,'#684225');bed.addColorStop(.45,'#754825');bed.addColorStop(1,'#a66d3b');fill(bed,LEFT,UP_BACK,RIGHT-LEFT,LOW_EDGE-UP_BACK);
+ for(let y=227;y<LOW_EDGE;y+=24){line('#4d2e1e77',LEFT+4,y,RIGHT-4,y);for(let x=LEFT+6;x<RIGHT;x+=75)fill('#c1965340',x,y+4,22,1)}
+ // side rails and openings
+ poly('#33251d',[[44,210],[58,210],[58,399],[43,399]]);poly('#2e251f',[[376,210],[362,210],[362,399],[377,399]]);
+ stone(45,211,11,169);stone(364,211,11,169);
+ fill('#060a0c',40,400,15,149);fill('#060a0c',365,400,15,149);
+ // mystical foreground and support lip
+ wood(15,558,390,50);line('#f4d395',16,561,404,561,3);for(let x=25;x<397;x+=13)fill('#cda66f',x,588,5,5);
+}
+function drawDrums(){const baseY=181;for(let i=0;i<3;i++){
+ const x=131+i*80;const finalVal=reelSymbols[i];let label=finalVal,upper=SYMS[(SYMS.indexOf(label)+SYMS.length-1)%SYMS.length],lower=SYMS[(SYMS.indexOf(label)+1)%SYMS.length],off=0;
+ if(spin){const t=Math.min(1,spin.t/spin.stops[i]);const e=t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;const count=spin.from[i]+spin.len[i]*e;const idx=Math.floor(count);label=SYMS[((idx%SYMS.length)+SYMS.length)%SYMS.length];upper=SYMS[((idx-1+SYMS.length)%SYMS.length)];lower=SYMS[(idx+1)%SYMS.length];off=(count-idx)*24;if(t>=1){label=spin.target[i];upper=SYMS[(SYMS.indexOf(label)+SYMS.length-1)%SYMS.length];lower=SYMS[(SYMS.indexOf(label)+1)%SYMS.length];off=0;}}
+ ctx.save();ctx.beginPath();ctx.rect(x-36,147,70,57);ctx.clip();fill('#fffdf6',x-36,147,70,57);const shadeTop=ctx.createLinearGradient(0,147,0,204);shadeTop.addColorStop(0,'#776c70aa');shadeTop.addColorStop(.29,'#ffffff00');shadeTop.addColorStop(.71,'#ffffff00');shadeTop.addColorStop(1,'#665e6888');fill(shadeTop,x-36,147,70,57);ctx.font='1000 28px Impact, Arial Black, sans-serif';text(ornateSymbol(upper),x,136+off,'#b4383a',16,'Impact, sans-serif');text(ornateSymbol(label),x,179+off,'#b41d22',26,'Impact, sans-serif');text(ornateSymbol(lower),x,219+off,'#b4383a',16,'Impact, sans-serif');ctx.restore();
+ // little jewel between drums
+ if(i<2){fill('#b79d6b',x+38,169,4,20)}
+ }}
+function drawQueueLamps(){
+ const total=queueCapacity(),filled=spinQueue,y=213,gap=15,start=210-(total-1)*gap/2;
+ fill('#3c2d1a',start-11,y-9,(total-1)*gap+22,19);
+ line('#c6a05f',start-11,y-9,start+(total-1)*gap+11,y-9,2);
+ for(let i=0;i<total;i++){ctx.beginPath();ctx.arc(start+i*gap,y,4.7,0,Math.PI*2);ctx.fillStyle=i<filled?'#76ffd5':'#2a5149';ctx.fill();ctx.lineWidth=1.2;ctx.strokeStyle='#e4c67b';ctx.stroke();}
+}
+function renderDeck(){const front=s?.deckFront||293;const back=Math.max(216,front-114);
+ // recessed shadow in lower bed
+ fill('#00000033',LEFT+2,front+12,RIGHT-LEFT-4,22);
+ const deck=ctx.createLinearGradient(0,back,0,front+14);deck.addColorStop(0,'#765336');deck.addColorStop(.7,'#ae8150');deck.addColorStop(1,'#533b29');fill(deck,LEFT+1,back,RIGHT-LEFT-2,front-back+12);
+ for(let y=225;y<front-6;y+=19){line('#563c2880',LEFT+3,y,RIGHT-3,y,1);line('#d1a66f44',LEFT+9,y+2,RIGHT-8,y+2,1)}
+ fill('#d8af6e',LEFT,front-4,RIGHT-LEFT,5);fill('#75523a',LEFT,front+1,RIGHT-LEFT,12);fill('#3a2a20',LEFT,front+11,RIGHT-LEFT,4);line('#1b1410',LEFT,front+14,RIGHT,front+14,2);
+}
+// Draw once to little offscreen atlases. 700+ physical coins remain affordable on phones.
+const atlas={};
+function sprite(kind,shade=0){
+ const key=kind+shade;if(atlas[key])return atlas[key];
+ const c=document.createElement('canvas');c.width=64;c.height=78;const g=c.getContext('2d');
+ const x=32,y=37,rr=13.1;
+ if(kind==='orb'){
+  const rad=g.createRadialGradient(23,24,1,32,35,20);rad.addColorStop(0,'#fffcd1');rad.addColorStop(.19,'#bfffee');rad.addColorStop(.48,'#45b7a5');rad.addColorStop(1,'#164555');g.fillStyle=rad;g.beginPath();g.arc(x,y,17.3,0,Math.PI*2);g.fill();g.strokeStyle='#9df7d5';g.lineWidth=1.3;g.stroke();
+ }else{
+  const barrel=kind==='bar5'||kind==='bar10'||kind==='bar200';const h=kind==='bar200'?36:kind==='bar10'?29:22;
+  if(barrel){const metal=g.createLinearGradient(18,0,46,0);metal.addColorStop(0,'#49301c');metal.addColorStop(.4,'#a47a38');metal.addColorStop(.68,'#dbb65f');metal.addColorStop(1,'#59341b');g.fillStyle=metal;g.fillRect(x-rr,y-h,rr*2,h);for(let j=1;j<h;j+=5){g.strokeStyle='#553413';g.beginPath();g.moveTo(x-rr,y-j);g.lineTo(x+rr,y-j);g.stroke()}}
+  const cy=barrel?y-h:y;
+  const body=['#d7a12f','#efbd38','#c18723'][shade%3];const gold=g.createRadialGradient(x-4,cy-6,1,x,cy,rr);gold.addColorStop(0,'#ffeb84');gold.addColorStop(.28,body);gold.addColorStop(.76,'#bd7f16');gold.addColorStop(1,'#67400f');g.fillStyle=gold;g.beginPath();g.arc(x,cy,rr,0,Math.PI*2);g.fill();g.strokeStyle='#3b281b';g.lineWidth=2;g.stroke();g.strokeStyle='#a58040';g.lineWidth=1;g.beginPath();g.arc(x,cy,rr-3,0,Math.PI*2);g.stroke();g.strokeStyle='#634620';g.beginPath();g.arc(x,cy,rr-6,0,Math.PI*2);g.stroke();
+  if(barrel){if(kind==='bar200'){g.shadowColor='#fff5a0';g.shadowBlur=5;}g.textAlign='center';g.font=kind==='bar200'?'900 11px system-ui':'900 14px system-ui';g.shadowBlur=0;g.fillStyle='#7a4410';g.fillText(kind==='bar200'?'200':kind==='bar10'?'10':'5',x,cy+3)}
+ }
+ atlas[key]=c;return c;
+}
+function drawCoin(c){
+ const x=c.x,bounce=c.bounce>0?Math.sin((c.bounce/5)*Math.PI)*Math.min(4,c.bounce):0,y=c.y-(c.layer*4)-bounce;
+ ctx.save();ctx.globalAlpha=.37;ctx.fillStyle='#120a08';ctx.beginPath();ctx.ellipse(x+3,y+5,RAD+1,RAD*.72,0,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1;
+ const kind=c.kind==='orb'?'orb':(c.kind==='bar'||c.value>=5)?c.value>=100?'bar200':c.value>=10?'bar10':'bar5':'coin';
+ if(c.kind==='orb'){ctx.shadowColor='#bd70ff';ctx.shadowBlur=12;ctx.drawImage(sprite(kind,c.id%3),x-48,y-55,96,117);}else{if(c.value>=5){ctx.shadowColor=c.value>=100?'#fff09e':'#ffcc57';ctx.shadowBlur=c.value>=100?15:8;}ctx.drawImage(sprite(kind,c.id%3),x-32,y-37);}ctx.restore();
+}
+
+function drawIncoming(q){ctx.save();ctx.globalAlpha=.22;ctx.fillStyle='#080a08';ctx.beginPath();ctx.ellipse(q.x,255,13,6,0,0,Math.PI*2);ctx.fill();ctx.restore();drawCoin({...q,layer:0,id:90,bounce:0});}
+function drawCatcher(){const x=s?.catcher||210,w=53+ml('collector')*4+(s?.buffs.collector||0)*10,y=561;
+ // support track behind sliding treasure chest
+ fill('#27211d',65,y+4,290,14);line('#b99b67',65,y+6,355,y+6,2);
+ // Open top and raised rim, then deep front wall.
+ fill('#2b1b12',x-w/2,y-6,w,25);fill('#110c0b',x-w/2+6,y-3,w-12,13);
+ poly('#ab7541',[[x-w/2-6,y-8],[x-w/2+5,y-14],[x+w/2-4,y-14],[x+w/2+6,y-8],[x+w/2,y+2],[x-w/2,y+2]]);
+ fill('#3f271a',x-w/2+6,y-9,w-12,6);
+ fill('#81502e',x-w/2,y+2,w,28);line('#e4b879',x-w/2,y+3,x+w/2,y+3,3);
+ for(const xx of [x-w/2+6,x+w/2-9]){fill('#c79b55',xx,y+8,5,15)}
+ text('RUNE',x,y+20,'#f7d697',10,'center','Georgia');
+}
+function render(){ctx.setTransform(scaleX,0,0,scaleY,0,0);ctx.imageSmoothingEnabled=false;renderBackdrop();drawDrums();drawQueueLamps();
+ if(s){const bottom=coins.filter(c=>c.zone==='bottom').sort((a,b)=>a.layer-b.layer||a.y-b.y);for(const c of bottom)drawCoin(c);renderDeck();for(const c of coins.filter(c=>c.zone==='top').sort((a,b)=>a.layer-b.layer||a.y-b.y))drawCoin(c);for(const c of coins.filter(c=>c.zone==='flight'))drawCoin(c);for(const c of incoming)drawIncoming(c);for(const d of frontDrops){ctx.save();ctx.globalAlpha=Math.max(0,1-d.age/.9);drawCoin({...d,zone:'bottom',layer:0,bounce:0});ctx.restore();}
+ // decorative rails and mystical reflection
+ line('#d4bc88aa',50,213,42,559,2);line('#d4bc88aa',370,213,378,559,2);
+ for(const p of sparkles)fill(p.color,p.x,p.y,2.6,2.6);
+ for(const v of coinRain){ctx.save();ctx.globalAlpha=Math.min(.9,Math.max(0,v.t));ctx.translate(v.x,v.y);ctx.rotate(v.rot);const w=v.size;ctx.drawImage(sprite('coin',Math.floor(v.size)%3),-w,-w,w*2,w*2);ctx.restore();}
+ for(const f of floatTexts){ctx.save();ctx.globalAlpha=Math.min(1,f.t*1.6);ctx.shadowColor='#9f450b';ctx.shadowBlur=5;ctx.lineWidth=4;ctx.strokeStyle='#4b2911';ctx.font='bold '+f.size+'px Georgia,serif';ctx.textAlign='center';ctx.strokeText(f.text,f.x,f.y);ctx.fillStyle='#ffe578';ctx.fillText(f.text,f.x,f.y);ctx.restore();}
+ const aim=s.aim;poly('#f2c969',[[aim,221],[aim-5,211],[aim+5,211]]);drawCatcher();
+ if(s.fever>0){fill('#ffdb6455',74,154,271,2);text('✦ 祝福の時 ✦',210,152,'#ffebac',10)}
+ }else{renderDeck();drawCatcher()}
+ // glow around stone door
+ line('#dfc392',84,147,338,147,3);
+}
+let lastDraw=0,perfPhysics=0,perfRender=0,perfFps=0,perfFrames=0,perfTick=0,perfError='';
+function frame(t){const dt=Math.min(.05,Math.max(0,(t-lastTime)/1000));lastTime=t;
+ const a=performance.now();try{gameStep(dt)}catch(e){perfError='GAME: '+e.message;console.error(e);}
+ perfPhysics=perfPhysics*.92+(performance.now()-a)*.08;
+ // Physics remains elapsed-time based, render at 30fps on dense mobile boards.
+ if(t-lastDraw>=33){lastDraw=t;const b=performance.now();
+  if(world3D){try{world3D.render()}catch(e){perfError='3D: '+e.message;console.error(e);world3D=null;document.body.classList.remove('using-real-3d');document.getElementById('threeView').style.display='none';render()}}
+  else render();
+  perfRender=perfRender*.92+(performance.now()-b)*.08;perfFrames++;
+ }
+ if(t-perfTick>=1000){perfFps=Math.round(perfFrames*1000/(t-perfTick||1000));perfFrames=0;perfTick=t;
+  const hud=document.getElementById('perfHud');if(hud&&hud.dataset.active==='1')hud.textContent='FPS '+perfFps+' · PHYS '+perfPhysics.toFixed(1)+'ms · 3D '+perfRender.toFixed(1)+'ms · COINS '+coins.length+(perfError?' · '+perfError:'');
+ }
+ requestAnimationFrame(frame)}
+document.querySelector('.heading .name').addEventListener('click',()=>{const h=document.getElementById('perfHud');h.dataset.active=h.dataset.active==='1'?'0':'1';});$('pause').onclick=pause;$('drop').onclick=()=>openUpgrade();
+canvas.addEventListener('pointerdown',e=>{if(!s?.running||s.choosing||s.paused)return;const rect=canvas.getBoundingClientRect();const k=Math.min(rect.width/W,rect.height/H),pad=(rect.width-W*k)/2;s.aim=clamp((e.clientX-rect.left-pad)/k,LEFT+RAD+10,RIGHT-RAD-10);holding=true;drop();try{canvas.setPointerCapture(e.pointerId)}catch(_){}});canvas.addEventListener('pointermove',e=>{if(!s||!holding)return;const rect=canvas.getBoundingClientRect();s.aim=clamp((e.clientX-rect.left)/rect.width*W,LEFT+RAD+10,RIGHT-RAD-10)});['pointerup','pointercancel','lostpointercapture'].forEach(k=>canvas.addEventListener(k,()=>holding=false));
+window.addEventListener('keydown',e=>{if(e.code==='KeyD'){const h=document.getElementById('perfHud');if(h)h.dataset.active=h.dataset.active==='1'?'0':'1';}if(e.code==='Space'){e.preventDefault();if(!holding){holding=true;drop()}}if(e.code==='ArrowLeft'&&s)s.aim=clamp(s.aim-15,75,345);if(e.code==='ArrowRight'&&s)s.aim=clamp(s.aim+15,75,345);if(/^Digit[1-4]$/.test(e.code))useItem(+e.code.slice(5)-1);if(e.code==='Escape'&&s?.running)pause()});window.addEventListener('keyup',e=>{if(e.code==='Space')holding=false});window.addEventListener('blur',()=>holding=false);
+window.__relicDebug={demo:startVaultDemo,flood:startFloodDemo,storm:addStorm,state:()=>({...s,coins:coins.length,top:coins.filter(c=>c.zone==='top').length,bottom:coins.filter(c=>c.zone==='bottom').length,incoming:incoming.length,slotQueue:spinQueue,slotQueueMax:queueCapacity(),cloonActive:!!cloonActive,overlayMode,profile:{...profile}}),advance:(t=1)=>{for(let n=0;n<t*60;n++)gameStep(1/60);return window.__relicDebug.state()},addReserve:give,setBank:(n=0)=>{s.bank=n;s.emptyCycle=null;},collect:(n=1)=>{for(let j=0;j<n;j++)collect({x:210,kind:'coin',value:1});return window.__relicDebug.state()},spin:()=>startSpin(),forceSpin:(v='7')=>{spin={target:[v,v,v]};settleSpin();return window.__relicDebug.state()},forceOutcome:(v=['1','2','3'])=>{spin={target:v};settleSpin();return window.__relicDebug.state()},cloon:()=>openCloon(),chooseRelic:(id)=>{const u=UPG.find(x=>x.id===id);if(!u)return; s.upgrades[id]=Math.min(u.max,rl(id)+1);u.act(rl(id));return window.__relicDebug.state()},orb:(n=5)=>{for(let i=0;i<n;i++)collect({kind:'orb',x:210});return window.__relicDebug.state()},end:()=>endRun(),selectUpgrade:()=>openUpgrade(),metas:()=>({...profile}),coins:()=>coins.map(c=>({x:c.x,y:c.y,zone:c.zone,layer:c.layer,kind:c.kind}))};
+// v2.4 self-contained perspective WebGL2 renderer.
+// The existing 2D collision solver remains authoritative. WebGL draws its exact
+// body positions; no remote library or model downloads are required.
+function create3DView(){
+ const layer=document.getElementById('threeView');
+ if(!layer)return null;
+ const gl=layer.getContext('webgl2',{alpha:false,antialias:false,powerPreference:'high-performance'});
+ if(!gl)return null;
+ const vsource=`#version 300 es
+ precision highp float;
+ layout(location=0) in vec3 position;
+ layout(location=1) in vec3 normal;
+ layout(location=2) in vec3 offset;
+ layout(location=3) in vec3 dimensions;
+ layout(location=4) in vec3 albedo;
+ uniform mat4 VP;
+ out vec3 nWorld;out vec3 pWorld;out vec3 baseColor;
+ void main(){vec3 world=position*dimensions+offset;gl_Position=VP*vec4(world,1.);pWorld=world;nWorld=normalize(normal/max(abs(dimensions),vec3(.001)));baseColor=albedo;}`;
+ const fsource=`#version 300 es
+ precision highp float;
+ in vec3 nWorld;in vec3 pWorld;in vec3 baseColor;
+ uniform vec3 eye;
+ out vec4 outputColor;
+ void main(){vec3 n=normalize(nWorld);vec3 l=normalize(vec3(-.50,1.0,.74));float diffuse=max(dot(n,l),0.);
+ vec3 v=normalize(eye-pWorld);vec3 h=normalize(l+v);
+ float shiny=pow(max(dot(n,h),0.),30.)*.50;
+ float bounce=max(dot(n,normalize(vec3(.65,.8,-.45))),0.)*.25;
+ float metal=baseColor.r>baseColor.b*1.3?1.:.35;
+ float torch1=1.4/(1.+.06*dot(pWorld-vec3(-8.,3.,-7.),pWorld-vec3(-8.,3.,-7.)));
+ float torch2=1.4/(1.+.06*dot(pWorld-vec3(8.,3.,-7.),pWorld-vec3(8.,3.,-7.)));
+ vec3 color=baseColor*(.66+diffuse*.77+bounce)+vec3(1.,.83,.37)*(torch1+torch2)*baseColor*.72+vec3(1.,.92,.62)*shiny*metal;
+ float fog=clamp((length(eye-pWorld)-30.)/65.,0.,.22);
+ color=mix(color,vec3(.035,.19,.23),fog);
+ // Subtle posterization + ordered-looking screen-space grain, not a giant low-res blur.
+ float grain=fract(sin(dot(floor(gl_FragCoord.xy/2.0),vec2(12.9898,78.233)))*43758.5453)-.5;
+ color=floor(max(color+grain*.035,vec3(0.))*31.0+.5)/31.0;
+ outputColor=vec4(pow(max(color,vec3(0.)),vec3(.91)),1.);}`;
+ function makeShader(type,source){const sh=gl.createShader(type);gl.shaderSource(sh,source);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(sh));return sh}
+ const prog=gl.createProgram();gl.attachShader(prog,makeShader(gl.VERTEX_SHADER,vsource));gl.attachShader(prog,makeShader(gl.FRAGMENT_SHADER,fsource));gl.linkProgram(prog);
+ if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(prog));
+ gl.useProgram(prog);gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.enable(gl.CULL_FACE);gl.cullFace(gl.BACK);
+ const vpLoc=gl.getUniformLocation(prog,'VP'),eyeLoc=gl.getUniformLocation(prog,'eye');
+ function pushTri(out,a,b,c,n){for(const p of [a,b,c])out.push(...p,...n)}
+ function cube(){const o=[];for(const [axis,d] of [[0,-1],[0,1],[1,-1],[1,1],[2,-1],[2,1]]){
+  const corners=[];for(const u of [-.5,.5])for(const v of [-.5,.5]){
+   const p=[0,0,0];p[axis]=.5*d;p[(axis+1)%3]=u;p[(axis+2)%3]=v;corners.push(p);
+  }
+  const n=[0,0,0];n[axis]=d;
+  const cross=(a,b,c)=>{let u=b.map((v,i)=>v-a[i]),w=c.map((v,i)=>v-a[i]);let q=[u[1]*w[2]-u[2]*w[1],u[2]*w[0]-u[0]*w[2],u[0]*w[1]-u[1]*w[0]];return q[axis]*d>0};
+  if(cross(corners[0],corners[1],corners[2])){pushTri(o,corners[0],corners[1],corners[2],n);pushTri(o,corners[2],corners[1],corners[3],n)}
+  else{pushTri(o,corners[0],corners[2],corners[1],n);pushTri(o,corners[2],corners[3],corners[1],n)}
+ }return o}
+ function cylinder(segs=12){const o=[];for(let i=0;i<segs;i++){let t=i*Math.PI*2/segs,q=(i+1)*Math.PI*2/segs;
+  const a=[Math.cos(t),-.5,Math.sin(t)],b=[Math.cos(q),-.5,Math.sin(q)],c=[Math.cos(q),.5,Math.sin(q)],d=[Math.cos(t),.5,Math.sin(t)];
+  pushTri(o,d,b,a,[Math.cos(t),0,Math.sin(t)]);pushTri(o,d,c,b,[Math.cos(t),0,Math.sin(t)]);
+  pushTri(o,[0,.5,0],c,d,[0,1,0]);pushTri(o,[0,-.5,0],a,b,[0,-1,0]);
+ }return o}
+ function sphere(slices=10,bands=7){const o=[];for(let j=0;j<bands;j++){let a=-Math.PI/2+j*Math.PI/bands,b=-Math.PI/2+(j+1)*Math.PI/bands;
+  for(let i=0;i<slices;i++){let u=i*2*Math.PI/slices,v=(i+1)*2*Math.PI/slices;
+   const pt=(phi,t)=>[Math.cos(phi)*Math.cos(t),Math.sin(phi),Math.cos(phi)*Math.sin(t)];
+   let p=pt(a,u),q=pt(a,v),r=pt(b,u),z=pt(b,v);
+   pushTri(o,p,r,q,p);pushTri(o,r,z,q,z);
+  }
+ }return o}
+ function mesh(vertices){const vao=gl.createVertexArray();gl.bindVertexArray(vao);
+  const vertex=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,vertex);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(vertices),gl.STATIC_DRAW);
+  gl.enableVertexAttribArray(0);gl.vertexAttribPointer(0,3,gl.FLOAT,false,24,0);
+  gl.enableVertexAttribArray(1);gl.vertexAttribPointer(1,3,gl.FLOAT,false,24,12);
+  const instance=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,instance);
+  for(const [i,len,offset] of [[2,3,0],[3,3,12],[4,3,24]]){gl.enableVertexAttribArray(i);gl.vertexAttribPointer(i,len,gl.FLOAT,false,36,offset);gl.vertexAttribDivisor(i,1)}
+  gl.bindVertexArray(null);
+  return {vao,instance,count:vertices.length/6,items:[]};
+ }
+ const boxes=mesh(cube()),discs=mesh(cylinder()),balls=mesh(sphere());
+ const X=x=>(x-210)/18.5,Z=y=>(y-360)/19.5;
+ const c={wood:[.42,.235,.105],oak:[.61,.35,.15],planks:[.55,.30,.13],rim:[.94,.65,.19],stone:[.28,.43,.43],lightStone:[.55,.66,.60],deepStone:[.09,.24,.29],gold:[1.,.70,.11],brass:[.93,.59,.16],rune:[.02,.80,.93],ruby:[.48,.13,.09],water:[.055,.33,.43],shadow:[.09,.06,.032],glass:[.07,.20,.23]};
+ const box=(x,y,z,w,h,d,color)=>boxes.items.push(x,y,z,w,h,d,...color);
+ const coin=(x,y,z,r,h,color)=>discs.items.push(x,y,z,r,h,r,...color);
+ const ball=(x,y,z,r,color)=>balls.items.push(x,y,z,r,r,r,...color);
+ function normalize(a){let r=Math.hypot(...a);return a.map(v=>v/(r||1))}
+ function cross(a,b){return [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]}
+ function lookAt(eye,target){let z=normalize(eye.map((v,i)=>v-target[i])),x=normalize(cross([0,1,0],z)),y=cross(z,x);
+  return new Float32Array([x[0],y[0],z[0],0,x[1],y[1],z[1],0,x[2],y[2],z[2],0,-x.reduce((a,v,i)=>a+v*eye[i],0),-y.reduce((a,v,i)=>a+v*eye[i],0),-z.reduce((a,v,i)=>a+v*eye[i],0),1]);}
+ function perspective(fovy,aspect,n,f){let t=1/Math.tan(fovy/2);return new Float32Array([t/aspect,0,0,0,0,t,0,0,0,0,(f+n)/(n-f),-1,0,0,2*f*n/(n-f),0]);}
+ function mul(a,b){let o=new Float32Array(16);for(let col=0;col<4;col++)for(let row=0;row<4;row++)for(let k=0;k<4;k++)o[col*4+row]+=a[k*4+row]*b[col*4+k];return o}
+ function flush(m){if(!m.items.length)return;gl.bindVertexArray(m.vao);gl.bindBuffer(gl.ARRAY_BUFFER,m.instance);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(m.items),gl.DYNAMIC_DRAW);gl.drawArraysInstanced(gl.TRIANGLES,0,m.count,m.items.length/9);gl.bindVertexArray(null);m.items.length=0;}
+ function drawScene(){
+  if(!layer.isConnected)return;
+  const rect=layer.getBoundingClientRect();if(rect.width<5||rect.height<5)return;
+  const ratio=Math.max(.47,Math.min(.72,(window.devicePixelRatio||1)*.49)),w=Math.max(1,Math.floor(rect.width*ratio)),h=Math.max(1,Math.floor(rect.height*ratio));
+  if(layer.width!==w||layer.height!==h){layer.width=w;layer.height=h;}
+  gl.viewport(0,0,w,h);gl.clearColor(.025,.15,.20,1);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+  boxes.items.length=discs.items.length=balls.items.length=0;
+  // Far 3D landscape: stone horizon, temple wall, ancient columns.
+  box(0,-1.5,-15.0,32,2,14,[.11,.17,.16]);
+  for(let j=0;j<15;j++){let xx=(j-7)*2.1;box(xx,1.45,-15.2,.13,2.9,4.8,j%3===0?c.stone:c.deepStone)}
+  // Pixel-temple set dressing: rich teal stone walls, banners and lit braziers.
+  box(0,3.8,-17.6,30,13,.4,c.deepStone);
+  for(let i=-7;i<=7;i++){
+    const xx=i*2.05;
+    box(xx,3.25,-17.15,.13,6.5,.3,i%2?c.water:c.stone);
+    box(xx,6.75,-17.05,1.1,.23,.35,c.rim);
+  }
+  for(const sign of [-1,1]){
+    box(sign*12.1,3.,-11.8,1.5,8.5,1.5,c.stone);
+    box(sign*12.1,7.55,-11.8,2.2,.7,1.8,c.rim);
+    box(sign*10.,3.5,-16.2,1.9,5.0,.2,c.water);
+    box(sign*10.,.9,-16.0,2.2,.38,.3,c.rim);
+    box(sign*10.,6.4,-16.0,2.2,.4,.3,c.brass);
+    // wall torches and basins made of lightweight instanced primitives
+    for(const zz of [-5.,2.,9.]){
+      box(sign*9.75,.9,zz,.72,1.8,.72,c.stone);
+      box(sign*9.75,1.95,zz,1.4,.33,1.4,c.brass);
+      ball(sign*9.75,2.45,zz,.65,[1.,.50,.05]);
+      ball(sign*9.72,2.88,zz,.37,[1.,.86,.17]);
+    }
+  }
+  box(0,0.0,-13.1,19.4,.8,6.5,c.stone);
+  box(0,1.6,-11.95,13.8,3.2,.65,c.deepStone);
+  for(const sign of [-1,1]){
+   let xx=sign*7.15;
+   box(xx,2.5,-11.7,1.15,5.8,1.4,c.lightStone);
+   box(xx,5.48,-11.7,1.9,.54,1.8,c.stone);
+   box(xx,0,-11.7,1.9,.65,1.8,c.stone);
+   for(let i=0;i<5;i++)box(xx+sign*.25,1.0+i*.73,-10.95,.16,.13,.45,c.rim);
+   box(sign*9.6,2.2,-11.3,1.7,4.4,2.0,c.deepStone);
+  }
+  box(0,5.2,-12.1,17.5,1.3,2.1,c.lightStone);
+  // Tall stone portal and tall physical slot drums, both built into the same 3D facade.
+  const shrineEl=document.getElementById('altarShrine');
+  const shrineOpen=!!(shrineEl&&shrineEl.classList.contains('doors-open'));
+  const gate=s?clamp(cloonActive?.door ?? (shrineOpen?1:0),0,1):0;
+  const doorSlide=gate*5.25;
+  box(0,8.65,-12.82,12.1,5.3,1.83,c.stone);
+  box(0,11.34,-12.82,13.1,.34,2.14,c.rim);
+  box(0,6.08,-12.49,13.1,.33,2.14,c.brass);
+  box(0,8.62,-11.95,11.25,4.78,.14,c.shadow);
+  // A round cloon basin rises inside the open portal. Eight holes and a rolling sphere are 3D geometry.
+  if(cloonActive || shrineEl?.classList.contains('reward')){
+    const wheelColor=[.58,.40,.17],holeColor=[.036,.065,.057];
+    const wx=0,wy=8.68,wz=-11.70,rad=2.03;
+    ball(wx,wy,wz,2.36,[.70,.49,.19]);
+    ball(wx,wy,wz+.35,2.07,[.14,.28,.24]);
+    ball(wx,wy,wz+.53,1.76,wheelColor);
+    ball(wx,wy,wz+.64,1.53,[.19,.28,.22]);
+    for(let k=0;k<8;k++){
+      const a=k*Math.PI/4-Math.PI/2;
+      const hx=wx+Math.cos(a)*1.34,hy=wy+Math.sin(a)*1.34;
+      ball(hx,hy,wz+.78,.39,[.77,.57,.24]);
+      ball(hx,hy,wz+.90,.30,holeColor);
+    }
+    if(cloonActive?.progress>0){
+      const a=cloonActive.angle,r=1.34*(cloonActive.radius/35.5),p=cloonActive.progress;
+      ball(wx+Math.cos(a)*r,wy+Math.sin(a)*r,wz+.99-(p>.94?(p-.94)*9:0),.27,[.08,.95,.82]);
+      ball(wx+Math.cos(a)*r-.07,wy+Math.sin(a)*r+.10,wz+1.13-(p>.94?(p-.94)*9:0),.085,[.76,1.,.90]);
+    }
+  }
+  for(const sign of [-1,1]){
+    const dx=sign*(2.74+doorSlide);
+    box(dx,8.64,-11.83,5.20,4.65,.23,[.42,.45,.41]);
+    box(dx,8.64,-11.68,4.75,4.22,.06,[.57,.58,.53]);
+    box(dx,8.64,-11.62,4.08,3.70,.045,[.32,.42,.40]);
+    box(dx,8.64,-11.56,.13,3.78,.085,c.brass);
+    box(dx,10.46,-11.56,4.20,.12,.09,c.brass);
+    box(dx,6.83,-11.56,4.20,.12,.09,c.brass);
+    box(dx+sign*1.60,8.60,-11.40,.24,.24,.16,c.brass);
+    box(sign*5.82,8.64,-11.67,.43,5.10,.43,c.brass);
+    box(sign*5.77,11.16,-11.50,.30,.30,.20,c.brass);
+  }
+  box(0,6.03,-12.10,16.2,.32,2.4,c.brass);
+  box(0,3.83,-11.28,10.7,5.40,.25,[.87,.82,.69]);
+  // Extended vertical three-drum window, numeric symbols constrained to each aperture.
+  box(0,3.82,-10.98,11.40,5.23,.34,c.brass);
+  box(0,3.82,-10.76,10.85,4.90,.15,[.93,.92,.88]);
+  for(let i=-1;i<=1;i++){
+    box(i*3.4,3.82,-10.60,3.13,4.55,.12,[.98,.97,.93]);
+    box(i*3.4,3.82,-10.46,3.05,4.44,.09,[.99,.98,.96]);
+  }
+  // Physical oracle queue lamps mounted immediately under slot windows.
+  box(0,1.02,-10.9,11.25,.43,.52,c.brass);
+  box(0,1.02,-10.57,10.60,.28,.20,c.deepStone);
+  const qmax=queueCapacity(),qfilled=spinQueue;
+  for(let i=0;i<qmax;i++){
+    const xx=(i-(qmax-1)/2)*(.98);
+    ball(xx,1.03,-10.35,.22,i<qfilled?[.10,1,.77]:[.22,.32,.29]);
+    if(i<qfilled)ball(xx,1.03,-10.27,.10,[.72,1,.84]);
+  }
+  // Wooden lower shelf and slab, shadows between upper and lower decks.
+  box(0,-.39,2.65,17.4,.65,17.5,c.wood);
+  for(let k=0;k<10;k++)box(0,-.06,-5.2+k*1.78,17.0,.075,.085,k%2?c.oak:c.rim);
+  box(0,-.36,10.05,17.9,.8,.58,c.brass);
+  box(0,-.76,11.0,18.4,.95,1.7,c.wood);
+  for(const sign of [-1,1]){
+    box(sign*9.05,.88,1.55,.55,2.7,23.8,c.oak);
+    box(sign*9.05,2.16,1.55,.70,.14,23.8,c.brass);
+    box(sign*9.57,.48,3.2,.9,1.05,20.5,c.stone);
+    for(let z=-8;z<=11;z+=2.2)box(sign*9.15,1.20,z,.75,.085,.15,c.brass);
+  }
+  // Moving plate. Rear remains under fixed arch; its front nose is the pusher.
+  const front=s?s.deckFront:306,frontz=Z(front),backz=Z(224);
+  box(0,.93,(frontz+backz)/2,16.65,.28,Math.max(.5,frontz-backz),c.planks);
+  box(0,.9,frontz,17.18,.4,.56,c.brass);
+  box(0,.65,frontz+.25,16.9,.32,.32,c.shadow);
+  box(0,1.33,Z(218),17.8,.75,.55,c.stone);
+  // A box, not a scoring plane, receives dropped coins at the front.
+  const catcher=s?s.catcher:210,cw=53+ml('collector')*4+(s?s.buffs.collector:0)*10,x=X(catcher),w3=cw/18.5;
+  box(x,-.40,10.9,w3,.18,2.05,c.deepStone);
+  box(x-w3/2,-.05,10.9,.26,.88,2.05,c.brass);
+  box(x+w3/2,-.05,10.9,.26,.88,2.05,c.brass);
+  box(x,-.15,12.0,w3,.65,.22,c.oak);
+  box(x,-.13,9.98,w3,.28,.22,c.rim);
+  // Coins are cylinders with actual thickness. Tokens are true spheres.
+  const palette=[[.96,.61,.105],[1.,.73,.16],[.90,.52,.07],[1.,.66,.11]];
+  for(const q of coins){
+    const top=q.zone==='top',height=top?1.26:.18,level=height+(q.layer||0)*.20;
+    const z=Z(q.y),xx=X(q.x),bounce=(q.bounce||0)*.018;
+    let yy=level+bounce;
+    if(q.zone==='flight'){let p=Math.min(1,(q.flight||0)/.35);yy=1.1-p*.92+.10*Math.sin(p*Math.PI);}
+    if(q.kind==='orb'){ball(xx,yy+.70,z,1.10,[.44,.13,.84]);ball(xx-.30,yy+1.12,z-.17,.27,[.92,.65,1.]);ball(xx+.18,yy+.72,z+.55,.18,[.72,.32,1.]);continue;}
+    const bar=q.kind==='bar'||q.value>=5;
+    const thick=bar?(q.value>=100?2.80:q.value>=50?2.28:q.value>=20?1.77:q.value>=10?1.28:.82):.125;
+    const r=.67+(bar?(q.value>=100?.13:.055):0);
+    coin(xx,yy+thick/2,z,r,thick,palette[q.id%4]);
+    coin(xx,yy+thick+.018,z,r*.82,.045,q.value>=200?[1,.92,.35]:c.gold);
+    if(bar){for(let k=0;k<5;k++)coin(xx,yy+.10+k*(thick-.1)/5,z,r*1.002,.04,k%2?palette[q.id%4]:c.gold);}
+  }
+  const portrait=w/h<.87;const eye=portrait?[0,20.5,26.6]:[0,19.5,25.5],target=portrait?[0,1.2,-2.5]:[0,1.7,-2.4];const vFov=portrait?58:54;const vp=mul(perspective(vFov*Math.PI/180,w/h,.1,125),lookAt(eye,target));
+  // Foreground drops drawn after opaque scene, depth disabled while falling.
+  gl.useProgram(prog);gl.uniformMatrix4fv(vpLoc,false,vp);gl.uniform3fv(eyeLoc,new Float32Array(eye));
+  flush(boxes);flush(discs);flush(balls);gl.disable(gl.DEPTH_TEST);
+  for(const d of frontDrops){
+    const progress=Math.min(1,d.age/.9),xx=X(d.x),zz=Z(LOW_EDGE)+Math.min(4.0,progress*4.3);
+    const yy=.25-6.3*progress*progress;
+    if(d.kind==='orb')ball(xx,yy,zz,1.08,[.50,.18,.85]);
+    else coin(xx,yy,zz,.67,d.value>=100?2.6:d.value>=50?2.2:d.value>=20?1.7:d.value>=10?1.2:d.value>=5?.8:.16,c.gold);
+  }
+  flush(boxes);flush(discs);flush(balls);gl.enable(gl.DEPTH_TEST);
+  for(const q of incoming)coin(X(q.x),Math.max(1.4,6.3-(q.y-90)*.034),Z(238),.64,.14,c.brass);
+  for(const v of coinRain.slice(0,90))coin(X(v.x),1.4+(620-v.y)*.013,Z(Math.min(540,v.y)),Math.max(.2,Math.min(.85,v.size/24)),.1,c.gold);
+
+  gl.useProgram(prog);gl.uniformMatrix4fv(vpLoc,false,vp);gl.uniform3fv(eyeLoc,new Float32Array(eye));
+  flush(boxes);flush(discs);flush(balls);
+  // Value labels are projected from the bar tops; deliberately limited for readability.
+  // Text labels remain crisp, on top of the 3D instrument panel.
+  const digits=document.getElementById('threeDigits');if(digits){
+    const projected=(p)=>{let r=[];for(let k=0;k<4;k++)r[k]=vp[k]*p[0]+vp[4+k]*p[1]+vp[8+k]*p[2]+vp[12+k]*p[3];return r};
+    for(let i=0;i<3;i++){
+      const rx=(i-1)*3.4,point=projected([rx,3.82,-10.32,1]);
+      let el=digits.children[i];if(!el||point[3]<.1)continue;
+      const lx=projected([rx-1.54,3.82,-10.32,1]),rxp=projected([rx+1.54,3.82,-10.32,1]);
+      const up=projected([rx,6.02,-10.32,1]),dn=projected([rx,1.62,-10.32,1]);
+      const toPxX=(q)=>(q[0]/q[3]+1)*.5*rect.width;
+      const toPxY=(q)=>(1-q[1]/q[3])*.5*rect.height;
+      const bw=Math.max(12,Math.abs(toPxX(rxp)-toPxX(lx)));
+      const bh=Math.max(15,Math.abs(toPxY(dn)-toPxY(up)));
+      let label=reelSymbols[i],before=SYMS[(SYMS.indexOf(label)+SYMS.length-1)%SYMS.length],after=SYMS[(SYMS.indexOf(label)+1)%SYMS.length],frac=0;
+      if(spin){
+        const t=Math.min(1,spin.t/spin.stops[i]);
+        if(t<1){const e=t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;const pos=spin.from[i]+spin.len[i]*e,idx=Math.floor(pos);
+          label=SYMS[((idx%SYMS.length)+SYMS.length)%SYMS.length];
+          before=SYMS[((idx-1+SYMS.length)%SYMS.length)];after=SYMS[(idx+1)%SYMS.length];frac=pos-idx;
+        }else{label=spin.target[i];before=SYMS[(SYMS.indexOf(label)+SYMS.length-1)%SYMS.length];after=SYMS[(SYMS.indexOf(label)+1)%SYMS.length];}
+      }
+      el.style.left=((point[0]/point[3]+1)*50).toFixed(2)+'%';
+      el.style.top=((1-point[1]/point[3])*50).toFixed(2)+'%';
+      el.style.width=bw.toFixed(1)+'px';el.style.height=bh.toFixed(1)+'px';
+      el.style.fontSize=Math.max(14,Math.min(bh*.72,bw*.92,80)).toFixed(1)+'px';
+      el.classList.toggle('rolling',!!spin&&spin.t<spin.stops[i]);el.classList.remove('reaching');
+      // Each entire drum face is the clip. Neighbouring symbols physically travel through it.
+      const labels=[before,label,after,SYMS[(SYMS.indexOf(after)+1)%SYMS.length]];
+      if(el.dataset.frame!==labels.join('|')){el.innerHTML='<span class="slot-strip">'+labels.map((v,j)=>'<span class="slot-figure'+(j===1?'':' neighbor')+'" style="top:'+(j*100)+'%">'+ornateSymbol(v)+'</span>').join('')+'</span>';el.dataset.frame=labels.join('|');}
+      el.children[0].style.transform='translate3d(0,'+(-100-frac*100)+'%,0)';
+
+    }
+  }
+ }
+ layer.style.display='block';document.body.classList.add('using-real-3d');
+ layer.addEventListener('webglcontextlost',e=>{e.preventDefault();document.body.classList.remove('using-real-3d');layer.style.display='none'});
+ return {render:drawScene};
+}
+
+let world3D=null;
+try{world3D=create3DView()}catch(error){console.warn('3D initialization failed. Using 2D fallback.',error);document.body.classList.remove('using-real-3d');const v=document.getElementById('threeView');if(v)v.style.display='none';}
+showHome();requestAnimationFrame(t=>{lastTime=t;requestAnimationFrame(frame)});
+})();
+</script></body></html>
