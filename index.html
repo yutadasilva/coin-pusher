@@ -307,6 +307,13 @@ body.using-real-3d #threeDigits>span{display:block!important;box-sizing:border-b
 .slot-figure.neighbor{opacity:.48;filter:blur(.5px)}
 body.using-real-3d .slot-hit #threeDigits>span{box-shadow:inset 0 10px 15px -14px #161318,inset 0 -12px 16px -13px #161318,0 0 13px #ffc83f!important}
 #perfHud{position:absolute;z-index:25;bottom:4px;left:4px;right:4px;background:#081b23dc;color:#8cffc4;font:10px monospace;padding:4px;pointer-events:none;display:none}#perfHud[data-active="1"]{display:block}
+
+/* v2.5.3: mobile fidelity; scoped reel selectors keep the moving symbol strip aligned. */
+body.using-real-3d #threeDigits>span{position:absolute;display:block;overflow:hidden;isolation:isolate}
+body.using-real-3d #threeDigits .slot-strip{position:absolute;left:0;top:0;width:100%;height:100%;display:block;transform-origin:top left;will-change:transform}
+body.using-real-3d #threeDigits .slot-figure{position:absolute;left:0;right:0;width:100%;height:100%;transform:none!important;display:flex;align-items:center;justify-content:center;line-height:1;font-size:inherit;font-weight:1000;text-align:center;white-space:nowrap;letter-spacing:0}
+body.using-real-3d #threeDigits .slot-figure.neighbor{opacity:.65;filter:blur(.35px)}
+body.using-real-3d #threeDigits>span::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;box-shadow:inset 0 15px 15px -13px #221916ae,inset 0 -18px 16px -15px #221916aa}
 </style></head>
 <body><div class="app"><div class="apparatus"><header class="top"><div class="heading"><div class="name">⚜ 遺跡の秘宝庫 <span class="game-submark">GOLDEN AVALANCHE</span></div><div class="subtitle">RELIC VAULT</div></div><div class="counters"><div class="counter"><small>残り金貨</small><strong class="green" id="reserve">100</strong></div><div class="counter"><small>SHOP</small><strong id="score">10</strong></div><div class="counter"><small>次の強化</small><strong id="next">5<span class="unit">枚</span></strong></div></div><div class="toprow"><button class="woodbtn primary" id="drop">✦ SHOP</button><button class="woodbtn small" id="pause">PAUSE</button></div><div class="tinybar"><div class="tokenbar"><i class="orb"></i> 魔力珠 <b id="tokens">0/5</b> <span class="queue-count" id="queueCount">神託 0 / 4</span></div><div class="relicslots" id="items"><span style="font-size:10px;color:#c7aa82">遺物なし</span></div></div><div class="frenzyline"><span class="frenzylevel" id="frenzyLevel">✦ GOLD I</span><div class="frenzymeter"><div id="frenzyFill"></div></div><b id="multiplier">×1</b></div><div class="status" id="status"></div></header><div class="world" id="world"><div class="altar-shrine" id="altarShrine"><div class="altar-crown">✦ ALTAR OF FATE ✦</div><div class="altar-mouth"><div class="altar-wheel" id="altarWheel"></div><div class="altar-door left"></div><div class="altar-door right"></div></div><div class="altar-status" id="altarStatus"></div><div class="altar-result" id="altarResult"></div><button class="altar-skip" id="altarSkip">SKIP ›</button></div><canvas id="game" width="312" height="462" aria-label="神殿のコインプッシャーゲーム盤面"></canvas><canvas id="threeView" aria-hidden="true"></canvas><div id="threeDigits" aria-hidden="true"><span>7</span><span>7</span><span>7</span></div><div id="perfHud" data-active="0"></div><div class="toastlayer" id="toasts"></div><div id="goldFlash" class="gold-flash"></div><div class="stormbanner" id="stormBanner"><small>GOLD STORM</small><strong id="stormNumber">×10</strong></div></div></div><div class="overlay" id="overlay"><div class="dialog" id="modal"></div></div></div>
 <script>
@@ -938,7 +945,7 @@ function create3DView(){
  }
  const boxes=mesh(cube()),discs=mesh(cylinder()),balls=mesh(sphere());
  const X=x=>(x-210)/18.5,Z=y=>(y-360)/19.5;
- const c={wood:[.42,.235,.105],oak:[.61,.35,.15],planks:[.55,.30,.13],rim:[.94,.65,.19],stone:[.28,.43,.43],lightStone:[.55,.66,.60],deepStone:[.09,.24,.29],gold:[1.,.70,.11],brass:[.93,.59,.16],rune:[.02,.80,.93],ruby:[.48,.13,.09],water:[.055,.33,.43],shadow:[.09,.06,.032],glass:[.07,.20,.23]};
+ const c={wood:[.42,.235,.105],oak:[.61,.35,.15],planks:[.55,.30,.13],rim:[.94,.65,.19],stone:[.28,.43,.43],lightStone:[.55,.66,.60],deepStone:[.09,.24,.29],gold:[.87,.57,.12],brass:[.79,.49,.16],rune:[.02,.80,.93],ruby:[.48,.13,.09],water:[.055,.33,.43],shadow:[.09,.06,.032],glass:[.07,.20,.23]};
  const box=(x,y,z,w,h,d,color)=>boxes.items.push(x,y,z,w,h,d,...color);
  const coin=(x,y,z,r,h,color)=>discs.items.push(x,y,z,r,h,r,...color);
  const ball=(x,y,z,r,color)=>balls.items.push(x,y,z,r,r,r,...color);
@@ -952,7 +959,7 @@ function create3DView(){
  function drawScene(){
   if(!layer.isConnected)return;
   const rect=layer.getBoundingClientRect();if(rect.width<5||rect.height<5)return;
-  const ratio=Math.max(.47,Math.min(.72,(window.devicePixelRatio||1)*.49)),w=Math.max(1,Math.floor(rect.width*ratio)),h=Math.max(1,Math.floor(rect.height*ratio));
+  const ratio=Math.max(.85,Math.min(1.12,(window.devicePixelRatio||1)*.53)),w=Math.max(1,Math.floor(rect.width*ratio)),h=Math.max(1,Math.floor(rect.height*ratio));
   if(layer.width!==w||layer.height!==h){layer.width=w;layer.height=h;}
   gl.viewport(0,0,w,h);gl.clearColor(.025,.15,.20,1);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
   boxes.items.length=discs.items.length=balls.items.length=0;
@@ -1075,7 +1082,7 @@ function create3DView(){
   box(x,-.15,12.0,w3,.65,.22,c.oak);
   box(x,-.13,9.98,w3,.28,.22,c.rim);
   // Coins are cylinders with actual thickness. Tokens are true spheres.
-  const palette=[[.96,.61,.105],[1.,.73,.16],[.90,.52,.07],[1.,.66,.11]];
+  const palette=[[.84,.51,.095],[.93,.63,.13],[.77,.45,.075],[.90,.55,.10]];
   for(const q of coins){
     const top=q.zone==='top',height=top?1.26:.18,level=height+(q.layer||0)*.20;
     const z=Z(q.y),xx=X(q.x),bounce=(q.bounce||0)*.018;
@@ -1134,7 +1141,7 @@ function create3DView(){
       // Each entire drum face is the clip. Neighbouring symbols physically travel through it.
       const labels=[before,label,after,SYMS[(SYMS.indexOf(after)+1)%SYMS.length]];
       if(el.dataset.frame!==labels.join('|')){el.innerHTML='<span class="slot-strip">'+labels.map((v,j)=>'<span class="slot-figure'+(j===1?'':' neighbor')+'" style="top:'+(j*100)+'%">'+ornateSymbol(v)+'</span>').join('')+'</span>';el.dataset.frame=labels.join('|');}
-      el.children[0].style.transform='translate3d(0,'+(-100-frac*100)+'%,0)';
+      el.children[0].style.setProperty('transform','translate3d(0,'+(-100-frac*100)+'%,0)','important');
 
     }
   }
